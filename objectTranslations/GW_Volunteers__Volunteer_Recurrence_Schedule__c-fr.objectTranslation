@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Volunteer Recurrence Schedule --></value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value><!-- Volunteer Recurrence Schedule --></value>
+    </caseValues>
+    <fields>
+        <help>Texte qui sera copié dans le champ commentaire des heures de bénévolat pour toutes les heures créée par ce programme récurrent.</help>
+        <label><!-- Comments --></label>
+        <name>GW_Volunteers__Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>GW_Volunteers__Contact__c</name>
+        <relationshipLabel><!-- Volunteer Recurrence Schedules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Days of Week --></label>
+        <name>GW_Volunteers__Days_of_Week__c</name>
+        <picklistValues>
+            <masterLabel>Friday</masterLabel>
+            <translation>Vendredi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday</masterLabel>
+            <translation>Lundi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saturday</masterLabel>
+            <translation>Samedi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunday</masterLabel>
+            <translation>Dimanche</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thursday</masterLabel>
+            <translation>Jeudi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuesday</masterLabel>
+            <translation>Mardi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wednesday</masterLabel>
+            <translation>Mercredi</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Duration --></label>
+        <name>GW_Volunteers__Duration__c</name>
+    </fields>
+    <fields>
+        <help>Mettre à 1 pour un individu. Mettre un chiffre plus grand si le bénévole représente un groupe et que vous ne voulez pas suivre les heures faites par ces personnes là.</help>
+        <label><!-- Number of Volunteers --></label>
+        <name>GW_Volunteers__Number_of_Volunteers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Schedule End Date --></label>
+        <name>GW_Volunteers__Schedule_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Schedule Start Date &amp; Time --></label>
+        <name>GW_Volunteers__Schedule_Start_Date_Time__c</name>
+    </fields>
+    <fields>
+        <help>Le Statut des Heures de Bénévolat a specifier sur les occurences des Heures nouvellement crées.</help>
+        <label><!-- Volunteer Hours Status --></label>
+        <name>GW_Volunteers__Volunteer_Hours_Status__c</name>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation>Annulé</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation>Complété</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation>Confirmé</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospect</masterLabel>
+            <translation>Perspective</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Job --></label>
+        <name>GW_Volunteers__Volunteer_Job__c</name>
+        <relationshipLabel><!-- Volunteer Recurrence Schedules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Weekly Occurrence --></label>
+        <name>GW_Volunteers__Weekly_Occurrence__c</name>
+        <picklistValues>
+            <masterLabel>1st</masterLabel>
+            <translation>1er</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2nd</masterLabel>
+            <translation>2ième</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3rd</masterLabel>
+            <translation>3ième</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4th</masterLabel>
+            <translation>4ième</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5th</masterLabel>
+            <translation>5ième</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alternate</masterLabel>
+            <translation>Alternant</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Every</masterLabel>
+            <translation>Toutes</translation>
+        </picklistValues>
+    </fields>
+    <gender><!-- Masculine --></gender>
+    <nameFieldLabel><!-- VRS ID --></nameFieldLabel>
+    <startsWith><!-- Consonant --></startsWith>
+    <validationRules>
+        <errorMessage><!-- You must specify at least one value for Days of Week --></errorMessage>
+        <name>GW_Volunteers__VRS_Days_of_Week_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must specify at least one value for Weekly Occurrence --></errorMessage>
+        <name>GW_Volunteers__VRS_Weekly_Occurrence_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

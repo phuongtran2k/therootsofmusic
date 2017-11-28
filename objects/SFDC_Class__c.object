@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Track the date and location of where your various Courses will be taught, and who has enrolled in this Class.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Is the class active and open for enrollment or shown</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is this class active and open for enrollment?</inlineHelpText>
+        <label>Active</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Begin_Date__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <description>Date the Class/Section begins</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter date that the class or section begins</inlineHelpText>
+        <label>Begin Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Instructor</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Instructor not known</errorMessage>
+            <filterItems>
+                <field>Contact.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ClassroomStaff</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Classes</relationshipLabel>
+        <relationshipName>R00N40000001QAyhEAG</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Date_Offered__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Offered</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <description>Date the class/section ends</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the date the class or section ends</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Facility__c</fullName>
+        <externalId>false</externalId>
+        <label>Facility</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Lab Room</fullName>
+                    <default>false</default>
+                    <label>Lab Room</label>
+                </value>
+                <value>
+                    <fullName>Training Room Bldg A Room 234</fullName>
+                    <default>false</default>
+                    <label>Training Room Bldg A Room 234</label>
+                </value>
+                <value>
+                    <fullName>Training Room Bldg A Room 254</fullName>
+                    <default>false</default>
+                    <label>Training Room Bldg A Room 254</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Friday__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Meet Friday?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Does the class meet Fridays?</inlineHelpText>
+        <label>Friday</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Max_Capacity__c</fullName>
+        <externalId>false</externalId>
+        <label>Max Capacity</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Monday__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Meeting Monday</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Does the class meet Monday?</inlineHelpText>
+        <label>Monday</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Product2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This links the class to the course</description>
+        <externalId>false</externalId>
+        <label>Course</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Product2.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Class</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Classes</relationshipLabel>
+        <relationshipName>R00N40000001QAyiEAG</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Saturday__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Meet Saturday?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Does the class meet Saturday?</inlineHelpText>
+        <label>Saturday</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Section__c</fullName>
+        <description>For a class that has multiple sections</description>
+        <externalId>false</externalId>
+        <label>Section</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A</fullName>
+                    <default>true</default>
+                    <label>A</label>
+                </value>
+                <value>
+                    <fullName>B</fullName>
+                    <default>false</default>
+                    <label>B</label>
+                </value>
+                <value>
+                    <fullName>C</fullName>
+                    <default>false</default>
+                    <label>C</label>
+                </value>
+                <value>
+                    <fullName>D</fullName>
+                    <default>false</default>
+                    <label>D</label>
+                </value>
+                <value>
+                    <fullName>E</fullName>
+                    <default>false</default>
+                    <label>E</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sunday__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Meet Sunday</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Does the class meet Sunday?</inlineHelpText>
+        <label>Sunday</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Thursday__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Meet Thursdays?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Does the class meet Thursdays?</inlineHelpText>
+        <label>Thursday</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Tuesday__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Meet Tuesday</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Does the class meet on Tuesdays?</inlineHelpText>
+        <label>Tuesday</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Wednesday__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Meet Wednesday?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Does the class meet on Wednesday?</inlineHelpText>
+        <label>Wednesday</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Class</label>
+    <listViews>
+        <fullName>Active_Classes</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Active Classes</label>
+    </listViews>
+    <listViews>
+        <fullName>AllCourses</fullName>
+        <columns>NAME</columns>
+        <columns>Product2__c</columns>
+        <columns>Facility__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Max_Capacity__c</columns>
+        <columns>Date_Offered__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Courses</label>
+    </listViews>
+    <listViews>
+        <fullName>PublicSpeaking</fullName>
+        <columns>NAME</columns>
+        <columns>Product2__c</columns>
+        <columns>Date_Offered__c</columns>
+        <columns>Contact__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>contains</operation>
+            <value>Speaking</value>
+        </filters>
+        <label>Public Speaking</label>
+    </listViews>
+    <nameField>
+        <label>Class Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Classes</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Product2__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Date_Offered__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Facility__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Max_Capacity__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Product2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Date_Offered__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Facility__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Product2__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Date_Offered__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Facility__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Mark_Attendance</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Mark Attendance</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/CLASS_SFDC_MarkAttendance?id={!SFDC_Class__c.Name}</url>
+    </webLinks>
+</CustomObject>

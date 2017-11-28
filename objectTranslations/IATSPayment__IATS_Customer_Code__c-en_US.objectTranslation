@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- Last 4 digits of ACH account number --></help>
+        <label><!-- ACH/Direct Debit Account Number --></label>
+        <name>IATSPayment__ACH_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ACH/Direct Debit Account Type --></label>
+        <name>IATSPayment__ACH_Account_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Applicable for iATS Accounts that utilize UK Direct Debit processing with iATS. The Reference number is the donors unique number associated to their DD Instruction (DDI). --></help>
+        <label><!-- Direct Debit Reference Number --></label>
+        <name>IATSPayment__ACH_Reference_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>IATSPayment__Account__c</name>
+        <relationshipLabel><!-- iATS Customer Codes --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Utilized in conjunction with &apos;Auctions for Salesforce&apos; by Groundwire. --></help>
+        <label><!-- Auction ID --></label>
+        <name>IATSPayment__Auction_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to display the Failure Details for the last time this record was included in a Batch Update Process. --></help>
+        <label><!-- Last Batch Update Failure Details --></label>
+        <name>IATSPayment__Batch_Update_Failure_Details__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to display the last batch update status value for the this record after it was included in a Batch Update Process. --></help>
+        <label><!-- Last Batch Update Status --></label>
+        <name>IATSPayment__Batch_Update_Status__c</name>
+        <picklistValues>
+            <masterLabel>Failure</masterLabel>
+            <translation><!-- Failure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Processed</masterLabel>
+            <translation><!-- Not Processed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Check this box to include this record to be included in the next Batch Update Process (via the iATS Settings Batch feature). 
+This field will automatically be unchecked once the Last Batch Status changes to either Success or Failure. --></help>
+        <label><!-- Include in Next Batch Update Process --></label>
+        <name>IATSPayment__Complete_Batch_Update__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>IATSPayment__Contact__c</name>
+        <relationshipLabel><!-- iATS Customer Codes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Expiry Date (MM/YY) --></label>
+        <name>IATSPayment__Credit_Card_Expiry_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last 4 digits of credit card number --></help>
+        <label><!-- Credit Card Number --></label>
+        <name>IATSPayment__Credit_Card_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Type --></label>
+        <name>IATSPayment__Credit_Card_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Applicable for iATS Accounts that utilize UK Direct Debit processing with iATS. The Reference number is registered with BACS via our UK acquirer Smart Debit. Should indicate a successful status or an error. See Status field for more information. --></help>
+        <label><!-- Direct Debit Registration Error --></label>
+        <name>IATSPayment__Direct_Debit_Registration_Error__c</name>
+    </fields>
+    <fields>
+        <help><!-- Applicable for iATS Accounts that utilize UK Direct Debit processing with iATS. The Reference number is registered with BACS via our UK acquirer Smart Debit. Should indicate a successful status or an error. See Error field for more information. --></help>
+        <label><!-- Direct Debit Registration Status --></label>
+        <name>IATSPayment__Direct_Debit_Registration_Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- DO NOT EDIT. This value is the ID generated within the 1st Pay processing system and is linked to the stored CC number. Used only for USD iATS Merchant Accounts who use the First American 1st Pay platform. --></help>
+        <label><!-- 1st Pay Credit Card ID (CIM Vault) --></label>
+        <name>IATSPayment__FAPS_Credit_Card_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- DO NOT EDIT. This value is the ID generated within the 1st Pay processing system and is linked to the stored recurring schedule (called transaction). Used only for USD iATS Merchant Accounts who use the First American 1st Pay platform. --></help>
+        <label><!-- 1st Pay Recurring ID --></label>
+        <name>IATSPayment__FAPS_Recurring_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- iATS Merchant Account --></label>
+        <name>IATSPayment__IATS_Account__c</name>
+        <relationshipLabel><!-- iATS Customer Codes --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Used to display the Date/Time value for the last time this record was included in a Batch Update Process. --></help>
+        <label><!-- Last Batch Update Date/Time --></label>
+        <name>IATSPayment__Last_Batch_Processing_Date_Time__c</name>
+    </fields>
+    <fields>
+        <help><!-- The SEPA Mandate ID for EURO bank debit transactions. Unique ID assigned to each donor and linked to their iATS Customer Code record. --></help>
+        <label><!-- Mandate ID --></label>
+        <name>IATSPayment__Mandate_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date Mandate ID created for SEPA Euro Debit. Will normally reflect Recurring Payments Begin Date on Customer Code. DO NOT EDIT. --></help>
+        <label><!-- Mandate Signing Date --></label>
+        <name>IATSPayment__Mandate_Signing_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Method of Payment --></label>
+        <name>IATSPayment__Method_of_Payment__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set if the customer code is related to only one opportunity (donation) record. --></help>
+        <label><!-- Opportunity --></label>
+        <name>IATSPayment__Opportunity__c</name>
+        <relationshipLabel><!-- iATS Customer Codes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Payer Address --></label>
+        <name>IATSPayment__Payer_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer City --></label>
+        <name>IATSPayment__Payer_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer Country --></label>
+        <name>IATSPayment__Payer_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer Email --></label>
+        <name>IATSPayment__Payer_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer First Name --></label>
+        <name>IATSPayment__Payer_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer Last Name --></label>
+        <name>IATSPayment__Payer_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer State --></label>
+        <name>IATSPayment__Payer_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer Zip Code --></label>
+        <name>IATSPayment__Payer_Zip_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring Payment Amount --></label>
+        <name>IATSPayment__Recurring_Payment_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring Payment Begin Date --></label>
+        <name>IATSPayment__Recurring_Payment_Begin_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring Payment End Date --></label>
+        <name>IATSPayment__Recurring_Payment_End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Applicable for &apos;Weekly&apos; and &apos;Monthly&apos; Recurring Payment Schedule Types. --></help>
+        <label><!-- Recurring Payment Schedule Date --></label>
+        <name>IATSPayment__Recurring_Payment_Schedule_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring Payment Schedule Type --></label>
+        <name>IATSPayment__Recurring_Payment_Schedule_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring Payment Status --></label>
+        <name>IATSPayment__Recurring_Payment_Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do not edit. Will automatically update. IATS Brickwork field. --></help>
+        <label><!-- Total Amount of Approved Transactions --></label>
+        <name>IATSPayment__Total_Amount_of_Approved_Transactions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do not edit. Will automatically update. IATS Brickwork field. --></help>
+        <label><!-- Total Number of Approved Transactions --></label>
+        <name>IATSPayment__Total_Number_of_Approved_Transactions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do not edit. Will automatically update. IATS Brickwork field. --></help>
+        <label><!-- Total Number of Rejected Transactions --></label>
+        <name>IATSPayment__Total_Number_of_Rejected_Transactions__c</name>
+    </fields>
+    <fields>
+        <help><!-- The UK BACS AUDDIS iATS Return record related to this Customer Code. For more information on the iATS Return, or what action you should take, click the record link and then the &quot;Help for this Page&quot; link in the top right corner of the Return record. --></help>
+        <label><!-- iATS UK AUDDIS Return --></label>
+        <name>IATSPayment__iATS_UK_AUDDIS_Return_del__c</name>
+        <relationshipLabel><!-- iATS Customer Codes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Recurring Donation --></label>
+        <name>IATS_recurring__Recurring_Donation__c</name>
+        <relationshipLabel><!-- iATS Customer Codes --></relationshipLabel>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- ACH/Direct Debit Account Number cannot be adjusted via Update Processing. --></errorMessage>
+        <name>IATSPayment__ACH_Bank_Numbers_Changed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ACH/Direct Debit Bank Number must be provided if the method of payment is set to &apos;ACH&apos; or &apos;ACH/Direct Debit&apos;. --></errorMessage>
+        <name>IATSPayment__ACH_Direct_Debit_Account_Number</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ACH/Direct Debit Account Type must be provided if the method of payment is set to &apos;ACH&apos; or &apos;ACH/Direct Debit&apos;. --></errorMessage>
+        <name>IATSPayment__ACH_Direct_Debit_Account_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ACH/Direct Debit Account Type must be &apos;Checking&apos; or Savings&apos;. --></errorMessage>
+        <name>IATSPayment__ACH_Direct_Debit_Account_Type_Selection</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit Card Expiry Date must be provided if the Method of Payment is set to &apos;CC&apos; or &apos;Credit Card&apos; --></errorMessage>
+        <name>IATSPayment__Credit_Card_Expiry_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit Card Expiry Date must be in the following format &apos;MM/YY&apos;. --></errorMessage>
+        <name>IATSPayment__Credit_Card_Expiry_Date_Format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit Card Number must be provided if the method of payment is set to &apos;CC&apos; or &apos;Credit Card&apos; --></errorMessage>
+        <name>IATSPayment__Credit_Card_Number</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit Card Number cannot be adjusted via Update Processing. --></errorMessage>
+        <name>IATSPayment__Credit_Card_Number_Changed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit card number is incorrect. --></errorMessage>
+        <name>IATSPayment__Credit_Card_Number_Format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit Card Type must be provided if the method of payment is set to &apos;CC&apos; or &apos;Credit Card&apos;. --></errorMessage>
+        <name>IATSPayment__Credit_Card_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit Card Type must be one of the following values: Visa, VISA, Mastercard, MC, American Express, AMX, Discover, or DSC. --></errorMessage>
+        <name>IATSPayment__Credit_Card_Type_Format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Method of payment must be: CC, Credit Card, ACH, or Direct Debit. --></errorMessage>
+        <name>IATSPayment__Method_of_Payment</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Method of Payment cannot be adjusted via Update Processing. --></errorMessage>
+        <name>IATSPayment__Method_of_Payment_Changed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Rapidata recurring payments cannot be cancelled via Update Processing. --></errorMessage>
+        <name>IATSPayment__Rapidata_Cancellation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Amount must have a value if the other Recurring Payment fields are populated. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Amount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Amount must be greater than 0. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Amount_Active</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Begin Date must have a value if the other Recurring Payment fields are populated. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Begin_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Begin Date must be greater than or equal to today. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Begin_date_Today</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment End Date must have a value if the other Recurring Payment fields are populated. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_End_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment End Date must be at least one year greater than the Recurring Payment Begin Date. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_End_Date_Annually</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment End Date must be greater than the Recurring Payment Begin Date. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_End_Date_Greater</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &apos;Recurring Payment End Date&apos; must be at least one month greater than the &apos;Recurring Payment Begin Date&apos;. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_End_Date_Monthly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &apos;Recurring Payment End Date&apos; must be at least three months greater than the &apos;Recurring Payment Begin Date&apos;. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_End_Date_Quarterly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &apos;Recurring Payment End Date&apos; must be at least one week greater than the &apos;Recurring Payment Begin Date&apos;. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_End_Date_Weekly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Schedule Date must have a value if the other Recurring Payment fields are populated and the Recurring Payment Schedule Type is &apos;Weekly&apos; or &apos;Monthly&apos;. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Schedule_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Schedule Date must have a value between 0 and 31 as the Recurring Payment Schedule Type is &apos;Monthly&apos;. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Schedule_Date_Monthly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Schedule Date is not applicable for the iATS Merchant Account. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Schedule_Date_Not_Appl</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Schedule Date must have a value between 0 and 7 as the Recurring Payment Schedule Type is &apos;Monthly&apos;. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Schedule_Date_Weekly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Schedule Type must have a value if the other Recurring Payment fields are populated. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Schedule_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Schedule Type must be &apos;Weekly&apos;, &apos;Monthly&apos;, &apos;Quarterly&apos;, or &apos;Annually&apos;. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Schedule_Type_Value</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Weekly is not available for Rapidata UK Direct Debit merchant accounts. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Schedule_Type_Weekly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Status must have a value if the other Recurring Payment fields are populated. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Status</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If the Recurring Payment Status is provided it must be set to &apos;Active&apos; or &apos;Inactive&apos;. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Status_Value</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- iATS Merchant Account cannot be adjusted. --></errorMessage>
+        <name>IATSPayment__iATS_Merchant_Account</name>
+    </validationRules>
+</CustomObjectTranslation>

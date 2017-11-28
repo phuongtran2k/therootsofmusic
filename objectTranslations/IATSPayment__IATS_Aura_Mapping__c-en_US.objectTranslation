@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- AURA Event Id --></label>
+        <name>IATSPayment__AURA_Event_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- AURA ID --></label>
+        <name>IATSPayment__AURA_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS Account --></label>
+        <name>IATSPayment__IATS_Account__c</name>
+        <relationshipLabel><!-- iATS Aura Mappings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mapping 10 --></label>
+        <name>IATSPayment__Mapping_10__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 11 --></label>
+        <name>IATSPayment__Mapping_11__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 12 --></label>
+        <name>IATSPayment__Mapping_12__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 13 --></label>
+        <name>IATSPayment__Mapping_13__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 14 --></label>
+        <name>IATSPayment__Mapping_14__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 15 --></label>
+        <name>IATSPayment__Mapping_15__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 16 --></label>
+        <name>IATSPayment__Mapping_16__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 17 --></label>
+        <name>IATSPayment__Mapping_17__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 18 --></label>
+        <name>IATSPayment__Mapping_18__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 19 --></label>
+        <name>IATSPayment__Mapping_19__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 1 --></label>
+        <name>IATSPayment__Mapping_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 20 --></label>
+        <name>IATSPayment__Mapping_20__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 21 --></label>
+        <name>IATSPayment__Mapping_21__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 22 --></label>
+        <name>IATSPayment__Mapping_22__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 23 --></label>
+        <name>IATSPayment__Mapping_23__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 24 --></label>
+        <name>IATSPayment__Mapping_24__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 25 --></label>
+        <name>IATSPayment__Mapping_25__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 2 --></label>
+        <name>IATSPayment__Mapping_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 3 --></label>
+        <name>IATSPayment__Mapping_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 4 --></label>
+        <name>IATSPayment__Mapping_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 5 --></label>
+        <name>IATSPayment__Mapping_5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 6 --></label>
+        <name>IATSPayment__Mapping_6__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 7 --></label>
+        <name>IATSPayment__Mapping_7__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 8 --></label>
+        <name>IATSPayment__Mapping_8__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapping 9 --></label>
+        <name>IATSPayment__Mapping_9__c</name>
+    </fields>
+</CustomObjectTranslation>

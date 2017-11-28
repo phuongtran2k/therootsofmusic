@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- Click the box if this code will be used with the BW Virtual Terminal. All iATS Client Codes to be used within BW or Aura should be added, but only those you want visible within the Virtual Terminal need to be Active. You can have up to 10 Active Accounts. --></help>
+        <label><!-- Active --></label>
+        <name>IATSPayment__Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the Client Code that was issued by iATS upon setup of your Merchant Account. --></help>
+        <label><!-- Client Code --></label>
+        <name>IATSPayment__Client_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the appropriate “iATS System” and “Currency” for the iATS Merchant Account. Choose “NA” if the Account has been setup to accept CAD or USD. Choose “UK” if the Account has been setup to accept any other currency. --></help>
+        <label><!-- Currency --></label>
+        <name>IATSPayment__Currency__c</name>
+        <picklistValues>
+            <masterLabel>Australia Dollar</masterLabel>
+            <translation><!-- Australia Dollar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canadian Dollar</masterLabel>
+            <translation><!-- Canadian Dollar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EURO</masterLabel>
+            <translation><!-- EURO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand Dollar</masterLabel>
+            <translation><!-- New Zealand Dollar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Swiss Franc</masterLabel>
+            <translation><!-- Swiss Franc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK Pound</masterLabel>
+            <translation><!-- UK Pound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Dollar</masterLabel>
+            <translation><!-- US Dollar --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Add a description of the iATS Account for future reference. For example, “Aura Online”. --></help>
+        <label><!-- Description --></label>
+        <name>IATSPayment__Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- For UK Pound currency Direct Debit merchant account use ONLY. Please select the applicable Bureau your iATS Account is processing with. If unsure, please contact iATS Payments Customer Care. --></help>
+        <label><!-- Direct Debit Processor --></label>
+        <name>IATSPayment__Direct_Debit_Processor__c</name>
+        <picklistValues>
+            <masterLabel>Rapidata</masterLabel>
+            <translation><!-- Rapidata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smart Debit</masterLabel>
+            <translation><!-- Smart Debit --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Optional: iATS Accounts cannot be deleted once used to create iATS Customer Codes or iATS Transactions. To remove an iATS Account from the Nightly Download Journal import, check this checkbox. This should only be used for an iATS Account that is disabled. --></help>
+        <label><!-- Do Not Include in Journal Download --></label>
+        <name>IATSPayment__Do_Not_Include_in_Journal_Download__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the appropriate “iATS System” and “Currency” for the iATS Merchant Account. Choose “NA” if the Account has been setup to accept CAD or USD. Choose “UK” if the Account has been setup to accept any other currency. --></help>
+        <label><!-- iATS System --></label>
+        <name>IATSPayment__IATS_System__c</name>
+        <picklistValues>
+            <masterLabel>AU</masterLabel>
+            <translation><!-- AU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK</masterLabel>
+            <translation><!-- UK --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter the Password associated to the Client Code that was issued by iATS upon setup of your Merchant Account. If the password is changed in the future, it will need to be updated here to avoid iATS connection problems. --></help>
+        <label><!-- Password --></label>
+        <name>IATSPayment__Password__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Primary checkbox enables one iATS Account to be displayed as the default Account within the Brickwork Virtual Terminal. --></help>
+        <label><!-- Primary --></label>
+        <name>IATSPayment__Primary__c</name>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- The currency must be set to &apos;US Dollar&apos; and the iATS System to &apos;NA&apos; based on your client code and password. --></errorMessage>
+        <name>IATSPayment__Client_Code</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Test_IATS_account --></label>
+        <name>IATSPayment__Test_IATS_account</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- Enter the Bank Account details depending on the currency of the iATS Merchant Account being used, digits only with no spaces/dashes/commas. 
+
+USD ACH: Routing (9 #) + account 
+CAD ACH: Bank (3 #) + transit (5 #) + account 
+UK DD: Sort (6 #) + account --></help>
+        <label><!-- ACH/Direct Debit Bank Numbers --></label>
+        <name>IATSPayment__ACH_Direct_Debit_Bank_Numbers_encrypted__c</name>
+    </fields>
+    <fields>
+        <help><!-- The value that will be charged to the donor one-time for a single transaction (when recurring schedule fields are left empty), or charged to the donor on a regular basis for a new Recurring setup (when recurring schedule fields are populated) --></help>
+        <label><!-- Amount --></label>
+        <name>IATSPayment__Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Leave empty when creating a new IBE record. Used to display the Date/Time the last time this record was included in a Batch Entry Process. --></help>
+        <label><!-- Batch Process Last Date/Time --></label>
+        <name>IATSPayment__Batch_Processing_Date_Time__c</name>
+    </fields>
+    <fields>
+        <help><!-- Leave empty when creating a new IBE record. Used to display the failure message the last time this record was included in a Batch Entry Process. --></help>
+        <label><!-- Batch Processing Last Failure Details --></label>
+        <name>IATSPayment__Batch_Processing_Failure_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>IATSPayment__City__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used to define the Record type that will be used for this particular donor&apos;s Contact record if one is create via batch. This field will overwrite the type selected for the entire batch on the iATS Batch Process settings (in iATS Settings). --></help>
+        <label><!-- Contact Record Type ID --></label>
+        <name>IATSPayment__Contact_Record_Type_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field can be used to select an existing contact record. If one doesn&apos;t exist, you have the option to leave this field blank and enter their details into the contact fields on this IBE record. A new contact will be created during the Batch Process. --></help>
+        <label><!-- Contact --></label>
+        <name>IATSPayment__Contact__c</name>
+        <relationshipLabel><!-- iATS Batch Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>IATSPayment__Country__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter the date in the following format MM/YY. Only future dates are accepted. --></help>
+        <label><!-- Credit Card Expiry Date (MM/YY) --></label>
+        <name>IATSPayment__Credit_Card_Expiry_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Visa/MC/DSC cards must be 16 digits. AMX cards must be 15 digits. Use numbers only. Do not add any characters such as dash or space.
+Discover is only available for USD merchant accounts. --></help>
+        <label><!-- Credit Card Number --></label>
+        <name>IATSPayment__Credit_Card_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to define the CC brand. Enter either Visa, MasterCard or MC, American Express or AMX, Discover or DSC. --></help>
+        <label><!-- Credit Card Type --></label>
+        <name>IATSPayment__Credit_Card_Type__c</name>
+        <picklistValues>
+            <masterLabel>American Express</masterLabel>
+            <translation><!-- American Express --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discover</masterLabel>
+            <translation><!-- Discover --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mastercard</masterLabel>
+            <translation><!-- Mastercard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visa</masterLabel>
+            <translation><!-- Visa --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Used to define Checking or Savings for North American ACH/EFT bank accounts. Enter Savings for Direct Debit. --></help>
+        <label><!-- ACH/Direct Debit Account Type --></label>
+        <name>IATSPayment__Direct_Debit_Account_Type__c</name>
+        <picklistValues>
+            <masterLabel>Checking</masterLabel>
+            <translation><!-- Checking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Savings</masterLabel>
+            <translation><!-- Savings --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>IATSPayment__Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>IATSPayment__First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Home Phone --></label>
+        <name>IATSPayment__Home_Phone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check this box when you want this record to be included in the next Batch Entry Process (via the iATS Settings Batch feature). 
+This field will automatically be unchecked once the Batch Status changes from Not Processed to either Success or Failure. --></help>
+        <label><!-- Include in Next Batch Entry Process --></label>
+        <name>IATSPayment__Include_in_Next_Batch_Entry_Process__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>IATSPayment__Last_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Method of payment must be Credit Card or ACH/Direct Debit. --></help>
+        <label><!-- Method of Payment --></label>
+        <name>IATSPayment__Method_of_Payment__c</name>
+        <picklistValues>
+            <masterLabel>ACH/Direct Debit</masterLabel>
+            <translation><!-- ACH/Direct Debit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Card</masterLabel>
+            <translation><!-- Credit Card --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Mobile Phone --></label>
+        <name>IATSPayment__Mobile_Phone__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used to define the Record type that will be used for this particular donor&apos;s Donation record create via batch. This field will overwrite the type selected for the entire batch on the iATS Batch Process settings (in iATS Settings). --></help>
+        <label><!-- Opportunity Record Type ID --></label>
+        <name>IATSPayment__Opportunity_Record_Type_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>IATSPayment__Opportunity__c</name>
+        <relationshipLabel><!-- iATS Batch Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This field is used to define a specific Primary Campaign that will be used for this particular donor&apos;s Donation record. This field will overwrite the campaign selected for the entire batch on the iATS Batch Process settings (in iATS Settings). --></help>
+        <label><!-- Primary Campaign Source --></label>
+        <name>IATSPayment__Primary_Campaign_Source__c</name>
+        <relationshipLabel><!-- iATS Batch Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This field is used to define the Record type that will be used for this particular donor&apos;s Recurring Donation record create via batch. This field will overwrite the type selected for the entire batch on the iATS Batch Process settings (in iATS Settings). --></help>
+        <label><!-- Recurring Donation Record Type ID --></label>
+        <name>IATSPayment__Recurring_Donation_Record_type_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use this field to set the first date iATS should process a transaction for the donor. For UK Direct Debit this date must be at least 12 days in the future. This date is used to determine which schedule date the donor will be charged on a regular basis. --></help>
+        <label><!-- Recurring Payment First Charge Date --></label>
+        <name>IATSPayment__Recurring_Payment_Begin_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is required by iATS and must be defined. If there is no true end date for this recurring schedule, enter any future date, such as 50 years in the future. This field is used to calculate the NPSP Non-Open ended donations. --></help>
+        <label><!-- Recurring Payment End Date --></label>
+        <name>IATSPayment__Recurring_Payment_End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field defines the schedule on which the donor will be charged. Weekly is not available for Rapidata UK Direct Debit merchant accounts. --></help>
+        <label><!-- Recurring Payment Schedule Type --></label>
+        <name>IATSPayment__Recurring_Payment_Schedule_Type__c</name>
+        <picklistValues>
+            <masterLabel>Annually</masterLabel>
+            <translation><!-- Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field indicates the status of a related single iATS Transaction that was processed by this iATS Batch Entry record. --></help>
+        <label><!-- Related iATS Transaction Status --></label>
+        <name>IATSPayment__Related_iATS_Transaction_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- State/Province --></label>
+        <name>IATSPayment__State__c</name>
+    </fields>
+    <fields>
+        <help><!-- Leave empty when creating a new IBE record as the default is Not Processed. Will change to Success or Failure once the record is included in a Batch Process. --></help>
+        <label><!-- Batch Process Status --></label>
+        <name>IATSPayment__Status__c</name>
+        <picklistValues>
+            <masterLabel>Failure</masterLabel>
+            <translation><!-- Failure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Processed</masterLabel>
+            <translation><!-- Not Processed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Street Address --></label>
+        <name>IATSPayment__Street_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip/Postal Code --></label>
+        <name>IATSPayment__Zip_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- iATS Customer Code --></label>
+        <name>IATSPayment__iATS_Customer_Code__c</name>
+        <relationshipLabel><!-- iATS Batch Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Leave blank to use the default Batch Entry record value within iATS Settings. If populated, this iATS Merchant Account will be used instead for single transactions, but assigned to the new iATS Customer Code if a recurring schedule is being setup. --></help>
+        <label><!-- iATS Merchant Account --></label>
+        <name>IATSPayment__iATS_Merchant_Account__c</name>
+        <relationshipLabel><!-- iATS Batch Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- iATS Transaction --></label>
+        <name>IATSPayment__iATS_Transaction__c</name>
+        <relationshipLabel><!-- iATS Batch Entries --></relationshipLabel>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- ACH/Direct Debit Bank Numbers must be provided if the method of payment is set to &apos;ACH/Direct Debit&apos;. --></errorMessage>
+        <name>IATSPayment__ACH_Direct_Debit_Account_Numbers</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ACH/Direct Debit Account Type must be provided if the method of payment is set to &apos;ACH/Direct Debit&apos;. --></errorMessage>
+        <name>IATSPayment__ACH_Direct_Debit_Account_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit Card Expiry Date, Credit Card Number and Credit Card Type fields must be blank if the Method of Payment is set to ACH/Direct Debit. --></errorMessage>
+        <name>IATSPayment__ACH_Direct_Debit_Method_of_Payment</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Amount must be greater than 0. --></errorMessage>
+        <name>IATSPayment__Amount_Must_Be_Greater_Than_0</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit Card Expiry Date must be provided if the method of payment is set to &apos;Credit Card&apos;. --></errorMessage>
+        <name>IATSPayment__Credit_Card_Expiry_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit Card Expiry Date must be in the following format &apos;MM/YY&apos;. --></errorMessage>
+        <name>IATSPayment__Credit_Card_Expiry_Date_Format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ACH/Direct Debit Account Type and Direct Debit Bank Numbers fields must be blank if the Method of Payment is set to Credit Card. --></errorMessage>
+        <name>IATSPayment__Credit_Card_Method_of_Payment</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit Card Number must be provided if the method of payment is set to &apos;Credit Card&apos;. --></errorMessage>
+        <name>IATSPayment__Credit_Card_Number</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit card number is incorrect. --></errorMessage>
+        <name>IATSPayment__Credit_Card_Number_Format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit Card Type must be provided if the method of payment is set to &apos;Credit Card&apos;. --></errorMessage>
+        <name>IATSPayment__Credit_Card_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- First name is required if the contact field is not populated. --></errorMessage>
+        <name>IATSPayment__First_Name</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Last name is required if the contact field is not populated. --></errorMessage>
+        <name>IATSPayment__Last_Name</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment End Date must be greater than the Recurring Payment First Charge Date. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_End_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment End Date must be at least one year greater than the Recurring Payment First Charge Date. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_End_Date_Annually</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment End Date must be at least one month greater than the Recurring Payment First Charge Date. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_End_Date_Monthly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment End Date must be at least three months greater than the Recurring Payment First Charge Date. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_End_Date_Quarterly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment End Date must be at least one week greater than the Recurring Payment First Charge Date. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_End_Date_Weekly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment First Charge Date must have a value if Recurring Payment Schedule Type is selected. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_First_Charge_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment First Charge Date must have a value if Recurring Payment End Date is provided. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_First_Charge_Date_End</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment First Charge Date must be greater than or equal to today. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_First_Charge_Date_Toda</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Schedule Type must have a value if Recurring Payment First Charge Date is provided. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Schedule_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Recurring Payment Schedule Type must have a value if Recurring Payment End Date is provided. --></errorMessage>
+        <name>IATSPayment__Recurring_Payment_Schedule_Type_End_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Zip/Postal Code is required if the contact field is not populated or the related contact does not have Mailing Zip/Postal Code. --></errorMessage>
+        <name>IATSPayment__Zip_Postal_Code</name>
+    </validationRules>
+</CustomObjectTranslation>

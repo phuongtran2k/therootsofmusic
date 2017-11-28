@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ボランティアの定期的なスケジュール</value>
+    </caseValues>
+    <fields>
+        <help>この [ボランティアの定期的なスケジュール] で作成されたすべての時間の [ボランティア時間コメント] 項目にコピーされるテキスト。</help>
+        <label><!-- Comments --></label>
+        <name>GW_Volunteers__Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>GW_Volunteers__Contact__c</name>
+        <relationshipLabel><!-- Volunteer Recurrence Schedules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Days of Week --></label>
+        <name>GW_Volunteers__Days_of_Week__c</name>
+        <picklistValues>
+            <masterLabel>Friday</masterLabel>
+            <translation>金曜日</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday</masterLabel>
+            <translation>月曜日</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saturday</masterLabel>
+            <translation>土曜日</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunday</masterLabel>
+            <translation>日曜日</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thursday</masterLabel>
+            <translation>木曜日</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuesday</masterLabel>
+            <translation>火曜日</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wednesday</masterLabel>
+            <translation>水曜日</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Duration --></label>
+        <name>GW_Volunteers__Duration__c</name>
+    </fields>
+    <fields>
+        <help>1 人の場合は 1 に設定します。個人がグループを表す場合はより大きい値に設定します。この場合、各個人の時間は追跡されません。</help>
+        <label><!-- Number of Volunteers --></label>
+        <name>GW_Volunteers__Number_of_Volunteers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Schedule End Date --></label>
+        <name>GW_Volunteers__Schedule_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Schedule Start Date &amp; Time --></label>
+        <name>GW_Volunteers__Schedule_Start_Date_Time__c</name>
+    </fields>
+    <fields>
+        <help>新しく作成した時間レコードで指定するボランティア時間の状況値。</help>
+        <label><!-- Volunteer Hours Status --></label>
+        <name>GW_Volunteers__Volunteer_Hours_Status__c</name>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation>キャンセル</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation>完了</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation>確認済み</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospect</masterLabel>
+            <translation>未登録ボランティア（数）</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Job --></label>
+        <name>GW_Volunteers__Volunteer_Job__c</name>
+        <relationshipLabel><!-- Volunteer Recurrence Schedules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Weekly Occurrence --></label>
+        <name>GW_Volunteers__Weekly_Occurrence__c</name>
+        <picklistValues>
+            <masterLabel>1st</masterLabel>
+            <translation>第 1 週</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2nd</masterLabel>
+            <translation>第 2 週</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3rd</masterLabel>
+            <translation>第 3 週</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4th</masterLabel>
+            <translation>第 4 週</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5th</masterLabel>
+            <translation>第 5 週</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alternate</masterLabel>
+            <translation>代替方法</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Every</masterLabel>
+            <translation>毎週</translation>
+        </picklistValues>
+    </fields>
+    <nameFieldLabel>VRS 身元</nameFieldLabel>
+    <validationRules>
+        <errorMessage><!-- You must specify at least one value for Days of Week --></errorMessage>
+        <name>GW_Volunteers__VRS_Days_of_Week_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must specify at least one value for Weekly Occurrence --></errorMessage>
+        <name>GW_Volunteers__VRS_Weekly_Occurrence_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

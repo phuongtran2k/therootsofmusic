@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CLASS_SFDC_Setting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CLASS_SFDC_Settings</value>
+    </caseValues>
+    <fields>
+        <help><!-- How many days do you want to retain session records that have any attendance marked? --></help>
+        <label><!-- Num Days Session Retention --></label>
+        <name>Num_Days_Session_Retention__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

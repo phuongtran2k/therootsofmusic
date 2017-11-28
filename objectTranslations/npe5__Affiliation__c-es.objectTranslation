@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Affiliation --></value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value><!-- Affiliation --></value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>npe5__Contact__c</name>
+        <relationshipLabel><!-- Organization Affiliations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>npe5__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>npe5__EndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization --></label>
+        <name>npe5__Organization__c</name>
+        <relationshipLabel><!-- Affiliated Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>Si se selecciona, la cuenta en la afiliación se guardará en el contacto.</help>
+        <label><!-- Primary --></label>
+        <name>npe5__Primary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>npe5__Role__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>npe5__StartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>npe5__Status__c</name>
+        <picklistValues>
+            <masterLabel>Current</masterLabel>
+            <translation>Vigente</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Former</masterLabel>
+            <translation>Antiguo</translation>
+        </picklistValues>
+    </fields>
+    <gender><!-- Feminine --></gender>
+    <nameFieldLabel><!-- Affiliation Name --></nameFieldLabel>
+</CustomObjectTranslation>

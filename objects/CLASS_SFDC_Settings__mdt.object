@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Holds all the application settings for the class attendance application</description>
+    <fields>
+        <fullName>Num_Days_Session_Retention__c</fullName>
+        <defaultValue>7</defaultValue>
+        <description>Number of days to keep session records that do not have any attendance marked</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>How many days do you want to retain session records that have any attendance marked?</inlineHelpText>
+        <label>Num Days Session Retention</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>CLASS_SFDC_Setting</label>
+    <pluralLabel>CLASS_SFDC_Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Recurring Donations --></value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value><!-- Recurring Donations --></value>
+    </caseValues>
+    <fields>
+        <label><!-- IATS - Address --></label>
+        <name>IATS_recurring__IATS_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - City --></label>
+        <name>IATS_recurring__IATS_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Country --></label>
+        <name>IATS_recurring__IATS_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Email --></label>
+        <name>IATS_recurring__IATS_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Fax --></label>
+        <name>IATS_recurring__IATS_Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - First Name --></label>
+        <name>IATS_recurring__IATS_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Item 1 --></label>
+        <name>IATS_recurring__IATS_Item_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Item 2 --></label>
+        <name>IATS_recurring__IATS_Item_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Item 3 --></label>
+        <name>IATS_recurring__IATS_Item_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Item 4 --></label>
+        <name>IATS_recurring__IATS_Item_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Item 5 --></label>
+        <name>IATS_recurring__IATS_Item_5__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Item 6 --></label>
+        <name>IATS_recurring__IATS_Item_6__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Last Name --></label>
+        <name>IATS_recurring__IATS_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Home Phone --></label>
+        <name>IATS_recurring__IATS_Phone1__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Mobile Phone --></label>
+        <name>IATS_recurring__IATS_Phone2__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - State --></label>
+        <name>IATS_recurring__IATS_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- IATS - Zip Code --></label>
+        <name>IATS_recurring__IATS_Zip_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>npe03__Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>npe03__Contact__c</name>
+        <relationshipLabel><!-- Recurring Donations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date Established --></label>
+        <name>npe03__Date_Established__c</name>
+    </fields>
+    <fields>
+        <label><!-- Donor Name --></label>
+        <name>npe03__Donor_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Installment Amount --></label>
+        <name>npe03__Installment_Amount__c</name>
+    </fields>
+    <fields>
+        <help>Définit la période de versement pour vos dons réguliers.  AVERTISSEMENT : modifier la période de versement pour un don régulier existant sans date de fin peut causer la suppression et recréation d’opportunités ouvertes, avec perte de données associées.</help>
+        <label><!-- Installment Period --></label>
+        <name>npe03__Installment_Period__c</name>
+        <picklistValues>
+            <masterLabel>1st and 15th</masterLabel>
+            <translation><!-- 1st and 15th --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yearly</masterLabel>
+            <translation><!-- Yearly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Nombre de versements.  Uniquement utilisé avec des dons réguliers avec date de fin.</help>
+        <label><!-- Installments --></label>
+        <name>npe03__Installments__c</name>
+    </fields>
+    <fields>
+        <help>Date du dernier paiement pour ce don régulier</help>
+        <label><!-- Last Donation Date --></label>
+        <name>npe03__Last_Payment_Date__c</name>
+    </fields>
+    <fields>
+        <help>Contient la date du prochain paiement récurrent.  Une modification manuelle de ce champ nécessite de recalculer toutes les dates de fermeture des opportunités futures en fonction du calendrier défini.</help>
+        <label><!-- Next Donation Date --></label>
+        <name>npe03__Next_Payment_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Ended Status --></label>
+        <name>npe03__Open_Ended_Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Organization --></label>
+        <name>npe03__Organization__c</name>
+        <relationshipLabel><!-- Recurring Donations --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>Montant total payé sur ce don régulier</help>
+        <label><!-- Paid Amount --></label>
+        <name>npe03__Paid_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign --></label>
+        <name>npe03__Recurring_Donation_Campaign__c</name>
+        <relationshipLabel><!-- Recurring Donations --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>Indique si le montant est utilisé pour chaque versement (Multiplié par) ou réparti entre les versements (Divisé entre)  Uniquement utilisé avec des dons réguliers avec date de fin.</help>
+        <label><!-- Schedule Type --></label>
+        <name>npe03__Schedule_Type__c</name>
+        <picklistValues>
+            <masterLabel>Divide By</masterLabel>
+            <translation>Diviser par</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiply By</masterLabel>
+            <translation><!-- Multiply By --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Nombre total de versements payés pour ce don régulier sans date de fin.</help>
+        <label><!-- Total Paid Installments --></label>
+        <name>npe03__Total_Paid_Installments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total --></label>
+        <name>npe03__Total__c</name>
+    </fields>
+    <fields>
+        <help><!-- When checked, all future monthly or quarterly donation installments will be set to the last day of the month, regardless of the actual date in the &quot;Next Donation Date&quot; field. This is ignored when the installment period is not set to Monthly or Quarterly. --></help>
+        <label><!-- Always use last day of month --></label>
+        <name>npsp__Always_Use_Last_Day_Of_Month__c</name>
+    </fields>
+    <gender><!-- Masculine --></gender>
+    <nameFieldLabel><!-- Recurring Donation Name --></nameFieldLabel>
+    <startsWith><!-- Consonant --></startsWith>
+    <webLinks>
+        <label><!-- IATS --></label>
+        <name>IATS_recurring__IATS</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Recurring_Acct_Donation --></label>
+        <name>npe03__New_Recurring_Acct_Donation</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Recurring_Donation_Pledge_Account --></label>
+        <name>npe03__New_Recurring_Donation_Pledge_Account</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Refresh_Opportunities --></label>
+        <name>npe03__Refresh_Opportunities</name>
+    </webLinks>
+</CustomObjectTranslation>

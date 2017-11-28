@@ -1,0 +1,40 @@
+<!-- 
+Page used to mark attendance of students
+-->
+
+<apex:page controller="CLASS_SFDC_MarkAttendanceController">
+ 
+    <!-- 
+    Top section to show Class and Session Info
+    -->
+    <apex:pageBlock title="Session Details">
+        <apex:outputLabel value="CLASS:         " for="theClassName" ></apex:outputLabel>
+        <apex:outputText value="{!currClass.name}" id="theClassName"></apex:outputText> <br/>
+        <apex:outputLabel value="SECTION:       " for="theClassSection" ></apex:outputLabel>
+        <apex:outputText value="{!currClass.Section__c}" id="theClassSection"></apex:outputText> <br/>
+        <apex:outputLabel value="INSTRUCTOR:    " for="theClassInst" ></apex:outputLabel>
+        <apex:outputText value="{!currClass.Contact__r.Name}" id="theClassInst"></apex:outputText> <br/>
+        <apex:outputLabel value="SESSON TIME:   " for="theClasstime" ></apex:outputLabel>
+        <apex:outputField value="{!currClassSession.Start_Date_Time__c}" id="theClasstime"> 
+        </apex:outputField> 
+    </apex:pageBlock>
+    <!-- 
+    Bottom section to allow instructors to mark attendance
+    -->
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageMessages />
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Save" action="{!save}"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockTable value="{!currAttendanceList}" var="attendance">
+            <apex:column headerValue="Attendance">
+                <apex:inputField value="{!attendance.Attended__c}"/>
+            </apex:column>    
+            <apex:column value="{!attendance.Student_Name__r.Name}"/>
+
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

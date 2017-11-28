@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Compte Marchand iATS</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Comptes Marchand iATS</value>
+    </caseValues>
+    <fields>
+        <help>Cliquez sur la case si ce code sera utilisé avec le terminal virtuel Brickwork. Tous les codes de client devraient être ajoutés, mais seuls ceux que vous voulez visibles dans le terminal doivent être actifs. Vous pouvez avoir jusqu&apos;à 10 comptes actifs.</help>
+        <label><!-- Active --></label>
+        <name>IATSPayment__Active__c</name>
+    </fields>
+    <fields>
+        <help>Entrez le code client qui a été publié par iATS lors de la configuration de votre compte marchand.</help>
+        <label><!-- Client Code --></label>
+        <name>IATSPayment__Client_Code__c</name>
+    </fields>
+    <fields>
+        <help>Sélectionnez le système iATS et la devise appropriés pour le compte iATS Merchant Account. Choisissez NA si le compte a été configuré pour accepter CAD ou USD. Choisissez UK si le compte a été configuré pour accepter toute autre devise.</help>
+        <label><!-- Currency --></label>
+        <name>IATSPayment__Currency__c</name>
+        <picklistValues>
+            <masterLabel>Australia Dollar</masterLabel>
+            <translation><!-- Australia Dollar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canadian Dollar</masterLabel>
+            <translation><!-- Canadian Dollar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EURO</masterLabel>
+            <translation><!-- EURO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand Dollar</masterLabel>
+            <translation><!-- New Zealand Dollar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Swiss Franc</masterLabel>
+            <translation><!-- Swiss Franc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK Pound</masterLabel>
+            <translation><!-- UK Pound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Dollar</masterLabel>
+            <translation><!-- US Dollar --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Ajoutez une description du compte iATS pour référence. Par exemple, &quot;Aura en ligne&quot;</help>
+        <label><!-- Description --></label>
+        <name>IATSPayment__Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- For UK Pound currency Direct Debit merchant account use ONLY. Please select the applicable Bureau your iATS Account is processing with. If unsure, please contact iATS Payments Customer Care. --></help>
+        <label><!-- Direct Debit Processor --></label>
+        <name>IATSPayment__Direct_Debit_Processor__c</name>
+        <picklistValues>
+            <masterLabel>Rapidata</masterLabel>
+            <translation><!-- Rapidata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smart Debit</masterLabel>
+            <translation><!-- Smart Debit --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Facultatif: Les comptes iATS ne peuvent pas être supprimés une fois qu&apos;ils ont été utilisés pour créer des transactions. Pour supprimer un compte iATS de l&apos;importation &quot;Nightly Download Journal&quot;, cochez cette case.</help>
+        <label><!-- Do Not Include in Journal Download --></label>
+        <name>IATSPayment__Do_Not_Include_in_Journal_Download__c</name>
+    </fields>
+    <fields>
+        <help>Sélectionnez le système iATS et la devise appropriés pour le compte iATS Merchant Account. Choisissez NA si le compte a été configuré pour accepter CAD ou USD. Choisissez UK si le compte a été configuré pour accepter toute autre devise.</help>
+        <label><!-- iATS System --></label>
+        <name>IATSPayment__IATS_System__c</name>
+        <picklistValues>
+            <masterLabel>AU</masterLabel>
+            <translation><!-- AU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK</masterLabel>
+            <translation><!-- UK --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Entrez le mot de passe associé au code client qui a été publié par iATS lors de la configuration de votre compte marchand. Si le mot de passe est modifié dans l&apos;avenir, il doit être mis à jour ici pour éviter les problèmes de connexion iATS.</help>
+        <label><!-- Password --></label>
+        <name>IATSPayment__Password__c</name>
+    </fields>
+    <fields>
+        <help>La case à cocher principale permet à un compte iATS d&apos;être le compte par défaut dans le terminal virtuel Brickwork.</help>
+        <label><!-- Primary --></label>
+        <name>IATSPayment__Primary__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Nom de Compte Marchand iATS</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The currency must be set to &apos;US Dollar&apos; and the iATS System to &apos;NA&apos; based on your client code and password. --></errorMessage>
+        <name>IATSPayment__Client_Code</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Test_IATS_account --></label>
+        <name>IATSPayment__Test_IATS_account</name>
+    </webLinks>
+</CustomObjectTranslation>

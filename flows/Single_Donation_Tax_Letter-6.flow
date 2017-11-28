@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>Email_Leadership_Donation_Over_500</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A2</name>
+        <label>Email Leadership</label>
+        <locationX>100</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.Email_Leadership_Donation_Over_500</actionName>
+        <actionType>emailAlert</actionType>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>Email_Leadership_Donation_Over_500</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_5_A1</name>
+        <label>Email Leadership</label>
+        <locationX>500</locationX>
+        <locationY>200</locationY>
+        <actionName>Opportunity.Email_Leadership_Donation_Over_500</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>myRule_5_A2</targetReference>
+        </connector>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>Email_Donor_Tax_Letter</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_5_A2</name>
+        <label>Email Tax Letter</label>
+        <locationX>500</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.Email_Donor_Tax_Letter</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>myRule_5_A3</targetReference>
+        </connector>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>Email_Donor_Tax_Letter</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_8_A1</name>
+        <label>Email Tax Letter</label>
+        <locationX>800</locationX>
+        <locationY>200</locationY>
+        <actionName>Opportunity.Email_Donor_Tax_Letter</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>myRule_8_A2</targetReference>
+        </connector>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <assignments>
+        <name>myVariable_waitStartTimeAssignment</name>
+        <label>myVariable_waitStartTimeAssignment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myVariable_waitStartTimeVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myDecision</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision</name>
+        <label>myDecision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_A1</targetReference>
+            </connector>
+            <label>Donation &gt; 500 and Need to be Mailed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision2</name>
+        <label>myDecision2</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision4</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_3</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_3_A1</targetReference>
+            </connector>
+            <label>Donation &lt; 500 and Need to be Mailed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision4</name>
+        <label>myDecision4</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision7</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_5</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_5</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_5_A1</targetReference>
+            </connector>
+            <label>Donation &gt; 500 and Tax Letter Mailed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>3.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision7</name>
+        <label>myDecision7</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_8</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_8</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_8_A1</targetReference>
+            </connector>
+            <label>Donation &lt; 500 and Tax Letter Mailed</label>
+        </rules>
+    </decisions>
+    <description>Send Email to donor after a single donation, Flag a when a ta Letter needs to be sent. Email Leadership when Amount &gt;500</description>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>TODAY()</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_6_myRule_5_A3_npsp_Acknowledgment_Date_c</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>TODAY()</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_9_myRule_8_A2_npsp_Acknowledgment_Date_c</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>ispickval([Opportunity].StageName , &quot;Closed Won&quot; )
+ &amp;&amp; 
+[Opportunity].RecordType.Name ==&quot;Donation&quot;
+&amp;&amp;
+isblank([Opportunity].npe03__Recurring_Donation__c.Name )
+&amp;&amp;
+(
+isblank([Opportunity].npsp__Primary_Contact__c.Email)
+||
+!ispickval([Opportunity].npsp__Primary_Contact__c.Preferred_Mail_Type__c,&quot;Email&quot;))
+&amp;&amp;
+[Opportunity].Amount &gt;= 500 
+
+
+</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_1</name>
+        <dataType>Boolean</dataType>
+        <expression>ispickval({!myVariable_current.StageName} , &quot;Closed Won&quot; )
+ &amp;&amp; 
+{!myVariable_current.RecordType.Name} ==&quot;Donation&quot;
+&amp;&amp;
+isblank({!myVariable_current.npe03__Recurring_Donation__c.Name} )
+&amp;&amp;
+(
+isblank({!myVariable_current.npsp__Primary_Contact__c.Email})
+||
+!ispickval({!myVariable_current.npsp__Primary_Contact__c.Preferred_Mail_Type__c},&quot;Email&quot;))
+&amp;&amp;
+{!myVariable_current.Amount} &gt;= 500</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>ispickval([Opportunity].StageName , &quot;Closed Won&quot; )
+ &amp;&amp; 
+[Opportunity].RecordType.Name ==&quot;Donation&quot;
+&amp;&amp;
+isblank([Opportunity].npe03__Recurring_Donation__c.Name )
+&amp;&amp;
+(
+isblank([Opportunity].npsp__Primary_Contact__c.Email)
+||
+!ispickval([Opportunity].npsp__Primary_Contact__c.Preferred_Mail_Type__c,&quot;Email&quot;))
+&amp;&amp;
+[Opportunity].Amount &lt; 500 </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_3</name>
+        <dataType>Boolean</dataType>
+        <expression>ispickval({!myVariable_current.StageName} , &quot;Closed Won&quot; )
+ &amp;&amp; 
+{!myVariable_current.RecordType.Name} ==&quot;Donation&quot;
+&amp;&amp;
+isblank({!myVariable_current.npe03__Recurring_Donation__c.Name} )
+&amp;&amp;
+(
+isblank({!myVariable_current.npsp__Primary_Contact__c.Email})
+||
+!ispickval({!myVariable_current.npsp__Primary_Contact__c.Preferred_Mail_Type__c},&quot;Email&quot;))
+&amp;&amp;
+{!myVariable_current.Amount} &lt; 500</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>ispickval([Opportunity].StageName , &quot;Closed Won&quot; )
+ &amp;&amp; 
+[Opportunity].RecordType.Name ==&quot;Donation&quot;
+&amp;&amp;
+isblank([Opportunity].npe03__Recurring_Donation__c.Name )
+&amp;&amp;
+! (
+isblank([Opportunity].npsp__Primary_Contact__c.Email)
+||
+!ispickval([Opportunity].npsp__Primary_Contact__c.Preferred_Mail_Type__c,&quot;Email&quot;))
+&amp;&amp;
+[Opportunity].Amount &gt;= 500 </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_5</name>
+        <dataType>Boolean</dataType>
+        <expression>ispickval({!myVariable_current.StageName} , &quot;Closed Won&quot; )
+ &amp;&amp; 
+{!myVariable_current.RecordType.Name} ==&quot;Donation&quot;
+&amp;&amp;
+isblank({!myVariable_current.npe03__Recurring_Donation__c.Name} )
+&amp;&amp;
+! (
+isblank({!myVariable_current.npsp__Primary_Contact__c.Email})
+||
+!ispickval({!myVariable_current.npsp__Primary_Contact__c.Preferred_Mail_Type__c},&quot;Email&quot;))
+&amp;&amp;
+{!myVariable_current.Amount} &gt;= 500</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>ispickval([Opportunity].StageName , &quot;Closed Won&quot; )
+ &amp;&amp; 
+[Opportunity].RecordType.Name ==&quot;Donation&quot;
+&amp;&amp;
+isblank([Opportunity].npe03__Recurring_Donation__c.Name )
+&amp;&amp;
+! (
+isblank([Opportunity].npsp__Primary_Contact__c.Email)
+||
+!ispickval([Opportunity].npsp__Primary_Contact__c.Preferred_Mail_Type__c,&quot;Email&quot;))
+&amp;&amp;
+[Opportunity].Amount &lt; 500 </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_8</name>
+        <dataType>Boolean</dataType>
+        <expression>ispickval({!myVariable_current.StageName} , &quot;Closed Won&quot; )
+ &amp;&amp; 
+{!myVariable_current.RecordType.Name} ==&quot;Donation&quot;
+&amp;&amp;
+isblank({!myVariable_current.npe03__Recurring_Donation__c.Name} )
+&amp;&amp;
+! (
+isblank({!myVariable_current.npsp__Primary_Contact__c.Email})
+||
+!ispickval({!myVariable_current.npsp__Primary_Contact__c.Preferred_Mail_Type__c},&quot;Email&quot;))
+&amp;&amp;
+{!myVariable_current.Amount} &lt; 500</expression>
+    </formulas>
+    <interviewLabel>Single_Donation_Tax_Letter-6_Opportunity</interviewLabel>
+    <label>Single Donation Process</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>Opportunity</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onAllChanges</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Opportunity]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>ACk Status = Letter to Be Mailed</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <connector>
+            <targetReference>myRule_1_A2</targetReference>
+        </connector>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Acknowledgment Status</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>npsp__Acknowledgment_Status__c</field>
+            <value>
+                <stringValue>Tax Letter to be Mailed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Opportunity]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_3_A1</name>
+        <label>ACk Status = Letter to Be Mailed</label>
+        <locationX>300</locationX>
+        <locationY>200</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Acknowledgment Status</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>npsp__Acknowledgment_Status__c</field>
+            <value>
+                <stringValue>Tax Letter to be Mailed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Opportunity]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_5_A3</name>
+        <label>Ack Status = Letter Sent &amp; Time Stamp</label>
+        <locationX>500</locationX>
+        <locationY>400</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Date</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Acknowledgment Date</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>npsp__Acknowledgment_Date__c</field>
+            <value>
+                <elementReference>formula_6_myRule_5_A3_npsp_Acknowledgment_Date_c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Acknowledgment Status</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>npsp__Acknowledgment_Status__c</field>
+            <value>
+                <stringValue>Tax Letter Email Sent</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Opportunity]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_8_A2</name>
+        <label>Ack Status = Letter Sent</label>
+        <locationX>800</locationX>
+        <locationY>300</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Date</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Acknowledgment Date</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>npsp__Acknowledgment_Date__c</field>
+            <value>
+                <elementReference>formula_9_myRule_8_A2_npsp_Acknowledgment_Date_c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Acknowledgment Status</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>npsp__Acknowledgment_Status__c</field>
+            <value>
+                <stringValue>Tax Letter Email Sent</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_waitStartTimeVariable</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDateTime</elementReference>
+        </value>
+    </variables>
+</Flow>

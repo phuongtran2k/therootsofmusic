@@ -1,0 +1,3 @@
+A donation of the Amount of {!Opportunity.Amount} has been made by {!Opportunity.npsp__Primary_Contact__c}.
+
+Detail: {!Opportunity.Link}

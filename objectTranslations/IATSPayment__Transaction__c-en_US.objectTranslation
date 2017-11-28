@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- Last 4 digits of ACH account number --></help>
+        <label><!-- ACH Account Number --></label>
+        <name>IATSPayment__ACH_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ACH Account Type --></label>
+        <name>IATSPayment__ACH_Account_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>IATSPayment__Account__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Amount (Text Field) --></label>
+        <name>IATSPayment__Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>IATSPayment__Amount_currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>IATSPayment__Contact__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contract --></label>
+        <name>IATSPayment__Contract__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Expiry Date --></label>
+        <name>IATSPayment__Credit_Card_Expiry_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Type --></label>
+        <name>IATSPayment__Credit_Card_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last 4 digits of credit card number --></help>
+        <label><!-- Credit Card Number --></label>
+        <name>IATSPayment__Credit_Card__c</name>
+    </fields>
+    <fields>
+        <label><!-- Currency --></label>
+        <name>IATSPayment__Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date --></label>
+        <name>IATSPayment__Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- iATS Merchant Account --></label>
+        <name>IATSPayment__IATS_Account__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- iATS Customer Code --></label>
+        <name>IATSPayment__IATS_Customer_Code__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Invoice Number --></label>
+        <name>IATSPayment__Invoice_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- The unique ID number assigned by iATS. Used to connect iATS ACH Transactions to new iATS Return Records. --></help>
+        <label><!-- Journal ID --></label>
+        <name>IATSPayment__Journal_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- The SEPA Mandate ID for EURO bank debit transactions. Unique ID assigned to each donor and linked to their iATS Customer Code record. --></help>
+        <label><!-- Mandate ID --></label>
+        <name>IATSPayment__Mandate_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mandate ID - Deprecated --></label>
+        <name>IATSPayment__Mandate_ID_del__c</name>
+    </fields>
+    <fields>
+        <label><!-- Method of Payment --></label>
+        <name>IATSPayment__Method_of_Payment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>IATSPayment__Opportunity__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Payer Address --></label>
+        <name>IATSPayment__Payer_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer City --></label>
+        <name>IATSPayment__Payer_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer First Name --></label>
+        <name>IATSPayment__Payer_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer Last Name --></label>
+        <name>IATSPayment__Payer_Last_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer State --></label>
+        <name>IATSPayment__Payer_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer Zip Code --></label>
+        <name>IATSPayment__Payer_Zip_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Status of the iATS Transaction. Will indicate OK Approved if successful, Reject if rejected, and Return if a successful ACH/DD Transaction was returned at a later date. Click the related &apos;iATS Debit Return&apos; record for more information. --></help>
+        <label><!-- Status --></label>
+        <name>IATSPayment__Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- Applicable for iATS Accounts that utilize UK Direct Debit processing with iATS. The Reference number is the donors unique number associated to their DD Instruction (DDI). --></help>
+        <label><!-- UK DD Reference --></label>
+        <name>IATSPayment__UK_DD_Reference__c</name>
+    </fields>
+    <fields>
+        <label><!-- UK DD Reference - Deprecated --></label>
+        <name>IATSPayment__UK_DD_Reference_del_del__c</name>
+    </fields>
+    <fields>
+        <help><!-- The iATS Return record related to this Transaction. For more information on the iATS Return, click the record link to view the return reason. If for UK DD, click the &quot;Help for this Page&quot; link in the top right corner of the Return record for action items. --></help>
+        <label><!-- iATS Debit Return --></label>
+        <name>IATSPayment__iATS_Debit_Return_del__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- error --></errorMessage>
+        <name>IATSPayment__validation_test</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Refund --></label>
+        <name>IATSPayment__Refund</name>
+    </webLinks>
+</CustomObjectTranslation>

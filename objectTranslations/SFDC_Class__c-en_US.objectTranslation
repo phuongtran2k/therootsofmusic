@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Class</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Classes</value>
+    </caseValues>
+    <fields>
+        <help><!-- Is this class active and open for enrollment? --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter date that the class or section begins --></help>
+        <label><!-- Begin Date --></label>
+        <name>Begin_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instructor --></label>
+        <lookupFilter>
+            <errorMessage><!-- Instructor not known --></errorMessage>
+        </lookupFilter>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Classes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date Offered --></label>
+        <name>Date_Offered__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the date the class or section ends --></help>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facility --></label>
+        <name>Facility__c</name>
+        <picklistValues>
+            <masterLabel>Lab Room</masterLabel>
+            <translation><!-- Lab Room --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training Room Bldg A Room 234</masterLabel>
+            <translation><!-- Training Room Bldg A Room 234 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training Room Bldg A Room 254</masterLabel>
+            <translation><!-- Training Room Bldg A Room 254 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Does the class meet Fridays? --></help>
+        <label><!-- Friday --></label>
+        <name>Friday__c</name>
+    </fields>
+    <fields>
+        <label><!-- Max Capacity --></label>
+        <name>Max_Capacity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Does the class meet Monday? --></help>
+        <label><!-- Monday --></label>
+        <name>Monday__c</name>
+    </fields>
+    <fields>
+        <label><!-- Course --></label>
+        <name>Product2__c</name>
+        <relationshipLabel><!-- Classes --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Does the class meet Saturday? --></help>
+        <label><!-- Saturday --></label>
+        <name>Saturday__c</name>
+    </fields>
+    <fields>
+        <label><!-- Section --></label>
+        <name>Section__c</name>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E</masterLabel>
+            <translation><!-- E --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Does the class meet Sunday? --></help>
+        <label><!-- Sunday --></label>
+        <name>Sunday__c</name>
+    </fields>
+    <fields>
+        <help><!-- Does the class meet Thursdays? --></help>
+        <label><!-- Thursday --></label>
+        <name>Thursday__c</name>
+    </fields>
+    <fields>
+        <help><!-- Does the class meet on Tuesdays? --></help>
+        <label><!-- Tuesday --></label>
+        <name>Tuesday__c</name>
+    </fields>
+    <fields>
+        <help><!-- Does the class meet on Wednesday? --></help>
+        <label><!-- Wednesday --></label>
+        <name>Wednesday__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Mark_Attendance --></label>
+        <name>Mark_Attendance</name>
+    </webLinks>
+</CustomObjectTranslation>

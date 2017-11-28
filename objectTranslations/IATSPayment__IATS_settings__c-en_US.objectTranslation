@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Batch - Contact Record Type ID --></label>
+        <name>IATSPayment__Batch_Contact_Record_Type_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch - Opportunity  Record Type ID --></label>
+        <name>IATSPayment__Batch_Opportunity_Record_Type_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch - Primary Campaign Source ID --></label>
+        <name>IATSPayment__Batch_Primary_Campaign_Source_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch - Rec. Donation Record Type ID --></label>
+        <name>IATSPayment__Batch_Rec_Donation_Record_Type_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch - iATS Merchant Account ID --></label>
+        <name>IATSPayment__Batch_iATS_Merchant_Account_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Filter10 --></label>
+        <name>IATSPayment__Contact_Filter10__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Filter1 --></label>
+        <name>IATSPayment__Contact_Filter1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Filter2 --></label>
+        <name>IATSPayment__Contact_Filter2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Filter3 --></label>
+        <name>IATSPayment__Contact_Filter3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Filter4 --></label>
+        <name>IATSPayment__Contact_Filter4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Filter5 --></label>
+        <name>IATSPayment__Contact_Filter5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Filter6 --></label>
+        <name>IATSPayment__Contact_Filter6__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Filter7 --></label>
+        <name>IATSPayment__Contact_Filter7__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Filter8 --></label>
+        <name>IATSPayment__Contact_Filter8__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Filter9 --></label>
+        <name>IATSPayment__Contact_Filter9__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Match Logic --></label>
+        <name>IATSPayment__Contact_Match_Logic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Match Type --></label>
+        <name>IATSPayment__Contact_Match_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Create Scheduled Payment Records --></label>
+        <name>IATSPayment__Create_Scheduled_Payment_Records__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Create New Donation --></label>
+        <name>IATSPayment__Default_Create_New_Donation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Opportunity Contact Role --></label>
+        <name>IATSPayment__Default_Opportunity_Contact_Role__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Credit Card Entry Mode --></label>
+        <name>IATSPayment__Default_Payment_Entry_Mode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Disables iATS Transaction trigger which updates cumulative fields on related iATS Customer Code and Opportunities records that are related to iATS Transactions. Recommended for conflicts with other packages and custom code. --></help>
+        <label><!-- Disable iATS Transaction Rollup Trigger --></label>
+        <name>IATSPayment__Disable_iATS_Transaction_Rollup_Trigger__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Not Automatically Create Opp Records --></label>
+        <name>IATSPayment__Do_Not_Automatically_Create_Opp_Records__c</name>
+    </fields>
+    <fields>
+        <help><!-- The amount field on the IATS virtual terminal will automatically populate with the amount of the opportunity (donation) record unless this field is checked. Only applicable for the Opportunity (donation) virtual terminal. --></help>
+        <label><!-- Do Not Automatically Fill Amount Field --></label>
+        <name>IATSPayment__Do_Not_Automatically_Fill_Amount_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Not Create Past Payments --></label>
+        <name>IATSPayment__Do_Not_Create_Past_Payments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Journal Download Batch Size --></label>
+        <name>IATSPayment__Journal_Download_Batch_Size__c</name>
+    </fields>
+    <fields>
+        <label><!-- Limit (OP) --></label>
+        <name>IATSPayment__Limit_OP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Receive status notifications via email for scheduled nightly batch transaction downloads. Please note that notifications will always be sent if errors occur during the downloads. --></help>
+        <label><!-- Nightly Batch Download Notification --></label>
+        <name>IATSPayment__Nightly_Batch_Download_Notification__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the Nonprofit Starter Pack is installed, which data model is being utilized? --></help>
+        <label><!-- Nonprofit Starter Pack Account Model --></label>
+        <name>IATSPayment__Nonprofit_Starter_Pack_Account_Model__c</name>
+    </fields>
+    <fields>
+        <help><!-- Email address to receive Brickwork notifications. --></help>
+        <label><!-- Notification Email --></label>
+        <name>IATSPayment__Notification_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Amount Population --></label>
+        <name>IATSPayment__Opportunity_Amount_Population__c</name>
+    </fields>
+    <fields>
+        <help><!-- If using a web donation form with Brickwork, this will be the stage that is set if the web donation is approved. This stage will also be used if an offline payment is approved and the &apos;Update Stage if Payment Accepted&apos; field is checked. --></help>
+        <label><!-- Payment Accepted Stage --></label>
+        <name>IATSPayment__Payment_Accepted_Stage__c</name>
+    </fields>
+    <fields>
+        <help><!-- This stage will be used if an offline payment is declined and the &apos;Update Stage if Payment Declined&apos; field is checked. --></help>
+        <label><!-- Payment Declined Stage --></label>
+        <name>IATSPayment__Payment_Declined_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Pending Stage --></label>
+        <name>IATSPayment__Payment_Pending_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pre-populate Virtual Terminal Recurring --></label>
+        <name>IATSPayment__Pre_populate_Virtual_Terminal_Recurring__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rec. Payments Date Change Action (OP) --></label>
+        <name>IATSPayment__Rec_Payments_Date_Change_Action_OP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rec. Payments Date Change Action (RO) --></label>
+        <name>IATSPayment__Rec_Payments_Date_Change_Action_RO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring Donation Model --></label>
+        <name>IATSPayment__Recurring_Donation_Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Opportunity Records Limit --></label>
+        <name>IATSPayment__Scheduled_Opportunity_Records_Limit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Payment Records Limit --></label>
+        <name>IATSPayment__Scheduled_Payment_Records_Limit__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check the payment &apos;written off&apos; checkbox when a related iATS Transaction is rejected --></help>
+        <label><!-- Update Payments Written Off --></label>
+        <name>IATSPayment__Update_Payments_Written_Off__c</name>
+    </fields>
+    <fields>
+        <label><!-- Update Stage If Payment is Pending --></label>
+        <name>IATSPayment__Update_Stage_If_Payment_is_Pending__c</name>
+    </fields>
+    <fields>
+        <help><!-- If checked, the opportunity stage will automatically update to the value in the &apos;Payment Accepted Stage&apos; field if an offline payment is approved. This is only applicable for opportunity related payments. --></help>
+        <label><!-- Update Stage if Payment Accepted --></label>
+        <name>IATSPayment__Update_Stage_if_Payment_Accepted__c</name>
+    </fields>
+    <fields>
+        <help><!-- If checked, the Opportunity stage will automatically update to the value in the &apos;Payment Declined Stage&apos; field if an offline payment is declined. This is only applicable for opportunity related single payments. --></help>
+        <label><!-- Update Stage if Payment Declined --></label>
+        <name>IATSPayment__Update_Stage_if_Payment_Declined__c</name>
+    </fields>
+    <fields>
+        <label><!-- recurring Donations Open Ended Status --></label>
+        <name>IATSPayment__recurring_Donations_Open_Ended_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring Amount Method --></label>
+        <name>IATSPayment__recurring_amount_method__c</name>
+    </fields>
+</CustomObjectTranslation>

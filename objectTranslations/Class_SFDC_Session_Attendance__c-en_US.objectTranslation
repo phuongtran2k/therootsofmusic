@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Class Session Attendance</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Class Session Attendances</value>
+    </caseValues>
+    <fields>
+        <help><!-- Mark student attended --></help>
+        <label><!-- Attended --></label>
+        <name>Attended__c</name>
+    </fields>
+    <fields>
+        <label><!-- Class Session --></label>
+        <name>Class_Session__c</name>
+        <relationshipLabel><!-- Class Session Attendances --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Student_Friendly_Name --></label>
+        <name>Student_Friendly_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter name of the student / contact --></help>
+        <label><!-- Student Name --></label>
+        <name>Student_Name__c</name>
+        <relationshipLabel><!-- Class Session Attendances --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

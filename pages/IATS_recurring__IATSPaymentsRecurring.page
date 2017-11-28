@@ -1,0 +1,1037 @@
+<apex:page standardcontroller="npe03__Recurring_Donation__c" extensions="IATSPayment.IATSPayments_Controller" 
+showHeader="false" sidebar="false" cache="false" id="paymentsPageRecurring">
+
+<style type="text/css" media="screen">
+
+.testCss{
+    display:none;
+}
+
+#header {
+    width:480px;
+    margin:5px auto; /* Right and left margin widths set to "auto" */
+    text-align:left; /* Counteract to IE5/Win Hack */
+    }
+
+#Content {
+    width:494px;
+    margin:5px auto; /* Right and left margin widths set to "auto" */
+    text-align:left; /* Counteract to IE5/Win Hack */
+    }
+body .bPageBlock .pbBody .labelCol, body .bPageBlock .pbBody .dataCol, body .bPageBlock .pbBody .data2Col {
+padding-top: 2px;
+padding-bottom: 2px;
+} 
+</style>
+
+<script type="text/javascript">  
+
+
+    function parseCreditNumberExpDate(txtObject,e){
+        var keynum = 0;
+        if (window.event){
+            keynum = window.event.keyCode;
+        }
+        else if (e.which){
+            keynum = e.which;
+        }
+        if (keynum == 13){
+                var fullString = txtObject.value;
+                if(fullString.length > 0){
+                    var string1 = fullString.substring(fullString.indexOf(';')+1,fullString.length);
+                    var strCreditcardNumber = string1.substring(0,string1.indexOf('='));
+                    var string2 = string1.substring(string1.indexOf('=')+1,string1.length);
+                    var string3 = string2.substring(0,4);
+                    var String4 = string3.substring(0,2);
+                    var String5 = string3.substring(2,4);
+                    var strExpiryDate = String5 + '/' + String4 ;
+                    
+                    var selectOption;
+                    selectOption = checkCreditcard(strCreditcardNumber);
+                    if(txtObject.id == "paymentsPageRecurring:myFrm:paymentsMainBlock:oneTimePaymentSection:creditCardNumber:txtCreditcardNumber"){
+                        if(selectOption != null){
+                            //document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.swipecard.txtswipecard}').setAttribute('style','display:none;');
+                            //document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.swipecard.txtswipecard}').parentNode.previousSibling.childNodes[0].setAttribute('style','display:none;');
+                            
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.expirtyDate.txtExpiryDate}').value = strExpiryDate;
+                            //document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.creditCardNumber.txtCreditcardNumber}').type = "text";
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.creditCardNumber.txtCreditcardNumber}').value = strCreditcardNumber;
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.creditCardTypeSection.creditCardType1}')[selectOption].selected = "1";
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.creditCardTypeSection.creditCardType1}').focus();
+                        }
+                        else{
+                            //document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.swipecard.txtswipecard}').value = '';
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.expirtyDate.txtExpiryDate}').value = '';
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.creditCardNumber.txtCreditcardNumber}').value = '';
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.creditCardTypeSection.creditCardType1}')[0].selected = "1";
+                        }
+                    }
+                    else if(txtObject.id == "paymentsPageRecurring:myFrm:paymentsMainBlock:recurringPageBlockSection:ccSectionItemRP:txtCreditcardNumberRP"){
+                        
+                        if(selectOption != null){
+                            //document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.swipecard.txtswipecard}').setAttribute('style','display:none;');
+                            //document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.swipecard.txtswipecard}').parentNode.previousSibling.childNodes[0].setAttribute('style','display:none;');
+
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.expDateSectionItemRP.txtExpiryDateRP}').value = strExpiryDate;
+                            //document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.ccSectionItemRP.txtCreditcardNumberRP}').type = "text";
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.ccSectionItemRP.txtCreditcardNumberRP}').value = strCreditcardNumber;
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.ccTypeSectionItemRP.creditCardType2}')[selectOption].selected = "1";
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.ccTypeSectionItemRP.creditCardType2}').focus();
+                        }
+                        else{
+                            //document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.swipecard.txtswipecard}').value = '';
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.expDateSectionItemRP.txtExpiryDateRP}').value = '';
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.ccSectionItemRP.txtCreditcardNumberRP}').value = '';
+                            document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.ccTypeSectionItemRP.creditCardType2}')[0].selected = "1";
+                        }
+                        
+                    }
+                    
+            }
+        }
+    }
+    
+    function checkCreditcard(ccNumber){
+
+        var reVisa = /^4[0-9]{12}(?:[0-9]{3})?$/; 
+        var reMasterCard = /^5[1-5][0-9]{14}$/;
+        var reDiscover = /^6(?:011|5[0-9]{2})[0-9]{12}$/;
+        var reAmericanExpress = /^3[47][0-9]{13}$/;
+        
+        if(reVisa.test(ccNumber) == true) return 0; 
+        if(reMasterCard.test(ccNumber) == true) return 1;
+        if(reDiscover.test(ccNumber) == true) return 2;
+        if(reAmericanExpress.test(ccNumber) == true) return 3;
+    }
+    
+    function disableEnterKey(e){
+        var key;     
+        if(window.event)
+            key = window.event.keyCode; //IE
+        else
+            key = e.which; //firefox     
+        return (key != 13);
+    }
+    
+    function changeEntryMode(entryMode){
+        var txtCreditCard = document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.creditCardNumber.txtCreditcardNumber}');
+        if(txtCreditCard != null){
+            if(entryMode.value == "CardReader"){
+                txtCreditCard.focus();
+                //txtCreditCard.type = "password";
+            }
+            else{
+                entryMode.focus();
+                //txtCreditCard.type = "text";
+            }
+        }
+    }
+    
+    if(document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.entrymodeInfo.enrymodelist}').value == "CardReader")
+    {
+        var txtCreditCard = document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.creditCardNumber.txtCreditcardNumber}');
+        if(entryMode.value == "CardReader"){
+                txtCreditCard.focus();
+                //txtCreditCard.type = "password";
+            }
+    }        
+        
+    
+    function changeEntryModeRC(entryMode){
+        var txtCreditCard = document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.ccSectionItemRP.txtCreditcardNumberRP}');
+        if(txtCreditCard != null){
+            if(entryMode.value == "CardReader"){
+                txtCreditCard.focus();
+                //txtCreditCard.type = "password";
+            }
+            else{
+                entryMode.focus();
+                //txtCreditCard.type = "text";
+            }
+        }
+    }
+    
+  
+    function focusOnCC(objElement){
+        //objElement.type = "password";
+    }
+    
+    /*function setRPSection(){
+    
+        setPaymentTypeRecurring();
+        alert('hii');
+        testFunction();
+        var txtCreditCardRP = document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.ccSectionItemRP.txtCreditcardNumberRP}');
+        if(txtCreditCardRP != null){
+            txtCreditCardRP.focus();
+            //txtCreditCardRP.type = "password";
+        }
+    }*/
+   
+    function clearCCData(){
+
+        if(document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.creditCardNumber.txtCreditcardNumber}') != null){
+            document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.expirtyDate.txtExpiryDate}').value = '';
+            document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.creditCardNumber.txtCreditcardNumber}').value = '';
+            document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.creditCardTypeSection.creditCardType1}')[0].selected = "1";
+        }
+        else if(document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.ccSectionItemRP.txtCreditcardNumberRP}') != null){
+            document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.expDateSectionItemRP.txtExpiryDateRP}').value = '';
+            document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.ccSectionItemRP.txtCreditcardNumberRP}').value = '';
+            document.getElementById('{!$Component.myFrm.paymentsMainBlock.recurringPageBlockSection.ccTypeSectionItemRP.creditCardType2}')[0].selected = "1";
+        }
+    }
+    
+    /*function swipeCardInvisible(){
+        //document.getElementById('{!$Component.myFrm.hdnEntrymode}').value = document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.entrymodeInfo.enrymodelist}').value;
+        //alert(document.getElementById('{!$Component.myFrm.hdnEntrymode}').value);
+    }*/
+
+    /*function entrymodePaymentchange(elemObj){
+        
+        var pageBlockSectionItem = document.getElementById('{!$Component.myFrm.paymentsMainBlock.oneTimePaymentSection.swipecard.txtswipecard}');
+        if(elemObj.value == "Manual"){
+            pageBlockSectionItem.parentNode.setAttribute('style','display:none;');
+            pageBlockSectionItem.parentNode.previousSibling.setAttribute('style','display:none;');
+        }
+        else if(elemObj.value == "CardReader"){
+            pageBlockSectionItem.parentNode.removeAttribute('style');
+            pageBlockSectionItem.parentNode.previousSibling.removeAttribute('style');
+                        
+        }
+
+    }*/
+ 
+    
+    if('{!IATSAccountId}' == '' || '{!IATSConnectionError}' == 'true')
+    {
+        window.resizeTo(635,220); 
+    }   
+</script>
+
+<apex:outputPanel id="updateRecurringWindow">
+<script>
+    function updateRecurringFunction()
+    {            
+        alert('{!JSENCODE(recurringResponse)}');  
+        if({!saveSuccess})
+        { 
+            parent.window.close();      
+        }           
+    } 
+    
+    function blankFunction()
+    {            
+    } 
+    
+    function updateRecurringUKFunction()
+    {            
+        alert('This update will not change the payer’s Bank Account information. Please advise the Payer to contact their bank directly.');                 
+    }
+    
+    function recurringResize()
+    {       
+        window.resizeTo(635,725);         
+    } 
+    
+    function oneTimeResize()
+    {       
+        window.resizeTo(635,669);         
+    }
+    function information()
+    {       
+        alert("NA Date Format:mm/dd/yyyy \nUK Date Format:dd/mm/yyyy");         
+    } 
+ 
+    function achUSPopup() 
+    {
+        newwindow = window.open('https://www.iatspayments.com/paymentbox/img/US.jpg','ACH Check Numbers','height=151,width=292');  
+    }
+    function achCDNPopup() 
+    {
+        newwindow = window.open('https://www.iatspayments.com/paymentbox/img/CAN.jpg','ACH Check Numbers','height=151,width=292');
+    }
+    function achUKPopup() 
+    {
+        newwindow = window.open('https://www.uk.iatspayments.com/paymentbox/img/UK.jpg','ACH Check Numbers','height=175,width=334');
+    }
+
+     
+</script> 
+<script>
+    function entrymodePaymentchange(lstentrymode ){
+        var entrymode = document.getElementById(lstentrymode)
+        var selectvalue = entrymode.options[entrymode.selectedIndex].value;
+    }
+</script>
+
+</apex:outputPanel>  
+<div id="header">
+<apex:image url="{!$Resource.IATSPayment__IATS_Header_Image_29}" width="480" height="65" />
+</div>
+<apex:outputPanel id="errorMessageTop" rendered="{!IATSAccountId == null || IATSConnectionError == true}">
+    <apex:messages style="color:red"/> 
+    </apex:outputPanel>
+    
+<apex:form rendered="{!IATSAccountId != null && IATSConnectionError != true}" id="myFrm" >
+<body onload="swipeCardInvisible();">
+
+<apex:outputPanel id="mainSection">
+<apex:outputPanel rendered="{!Processed}">
+<div id="Content">
+
+<apex:outputPanel rendered="{!gwa != 's'}">
+<table border="0">
+    <tr>
+        <td><table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="600" bgcolor="#555152"><p
+                align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                color="#FFFFFF" size="5"
+                face="verdana,arial,swiss"><strong>
+                <apex:outputText value="{!oneTimePaymentResultMsg_title}"/>
+                </strong></font></p>
+                </td>
+            </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td valign="top" width="600" bgcolor="#DAD9DA">
+                    <div align="center"><center><pre><font
+face="Arial"> </font></pre>
+                    </center></div><p align="center"><font
+                    size="3" face="Arial"><strong>
+                    <apex:outputText value="{!oneTimePaymentResultMsg_truncated}"/>
+</strong></font></p>
+            <p align="center"></p>
+                    <center><a href="javascript:window.close();">Close This Window</a></center>           
+                </td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+</table>
+</apex:outputPanel>
+
+<apex:outputPanel rendered="{!gwa == 's'}">
+<table border="0">
+    <tr>
+        <td><table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="600" bgcolor="#555152"><p
+                align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                color="#FFFFFF" size="5"
+                face="verdana,arial,swiss"><strong>Save Payment Info Result</strong></font></p>
+                </td>
+            </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td valign="top" width="600" bgcolor="#DAD9DA">
+                    <div align="center"><center><pre><font
+face="Arial"> </font></pre>
+                    </center></div><p align="center"><font
+                    size="3" face="Arial"><strong><apex:outputText value="{!savePaymentInfoResponse}" rendered="{!gwa != null}"/>
+</strong></font></p>
+            <p align="center"></p>
+                    <center><a href="javascript:window.close();">Close This Window</a></center>           
+                </td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+</table>
+</apex:outputPanel>
+
+<apex:outputPanel rendered="{!CCResult == 'invalid' && gwa != 's'}">
+
+<p><b>Transaction could not be completed! Please check the iATS Account information.</b></p>
+
+<center><a href="javascript:window.close();">Close This Window</a></center> 
+</apex:outputPanel>
+
+<apex:outputPanel rendered="{!contains(CCResult,'Reject') && CCResult != 'invalid' && gwa != 's'}">
+<br /><br />
+<b>Reject codes information available at:</b>
+<br />
+<a href="https://www.iatspayments.com/english/help/rejects.html" target="_blank">https://www.iatspayments.com/english/help/rejects.html</a>
+       
+</apex:outputPanel>
+</div>
+</apex:outputPanel>
+
+<apex:pageBlock id="paymentsMainBlock" rendered="{!IATSAccountId != null && Processed == false}">
+
+    <apex:outputPanel id="errorMessage">
+    <apex:messages style="color:red" rendered="{!validationError}"/> 
+    </apex:outputPanel>    
+ 
+  <apex:pageBlockButtons location="bottom" id="pageButtons">
+
+   <apex:actionStatus id="buttonstatus"> 
+       <apex:facet name="stop"> 
+          <apex:commandButton value="Process One-Time Payment" action="{!processPaymentButton}" status="buttonstatus"
+            reRender="mainSection" rendered="{!paymentType = 'onetime' && gwa = null }" disabled="{!mPayment == 'ACH' && IATSAccountSystem == 'UK'}" 
+           />
+        </apex:facet> 
+      
+        <apex:facet name="start">
+           <apex:commandButton value="Process One-Time Payment" status="buttonstatus"
+            rendered="{!paymentType = 'onetime' && gwa = null }" disabled="true"/>
+        </apex:facet>
+   </apex:actionStatus>  
+
+   <apex:actionStatus id="buttonstatusSave"> 
+       <apex:facet name="stop">
+           <apex:commandButton value="Save Payment Info" action="{!savePaymentInfoButton}" status="buttonstatusSave"
+           reRender="mainSection" rendered="{!gwa = 's'}" disabled="{!editPaymentInfo == false}"/>
+       </apex:facet> 
+      
+        <apex:facet name="start">
+           <apex:commandButton value="Save Payment Info" action="{!savePaymentInfoButton}" status="buttonstatusSave"
+           reRender="mainSection" rendered="{!gwa = 's'}" disabled="true"/>
+       </apex:facet> 
+    </apex:actionStatus>  
+
+    <apex:actionStatus id="buttonstatusProcess"> 
+       <apex:facet name="stop">
+           <apex:commandButton value="Process Payment" action="{!processPaymentButton}" status="buttonstatusProcess"
+           rendered="{!gwa = 'c'}" reRender="mainSection"/>
+   
+       </apex:facet> 
+      
+       <apex:facet name="start">
+           <apex:commandButton value="Process Payment" action="{!processPaymentButton}" status="buttonstatusProcess"
+           rendered="{!gwa = 'c'}" disabled="true"/>
+       </apex:facet> 
+    </apex:actionStatus>  
+
+    <apex:actionStatus id="buttonstatusValidate"> 
+       <apex:facet name="stop">
+            <apex:commandButton value="Validate Account" action="{!validateUK}" 
+        rendered="{!paymentType = 'recurring' && customerCodeRecord.id = null 
+            && (validateACH_Class.AUTHSTATUS != 'OK' || refNumberStatus != 'Registration OK')
+            && mPayment == 'ACH' && IATSAccountSystem == 'UK' 
+            && editPaymentInfo == true && IATSAccountCurrency != 'EURO'}"
+         status="buttonstatusValidate" id="validateACH" reRender="mainSection"/>
+       </apex:facet> 
+      
+       <apex:facet name="start">
+            <apex:commandButton value="Validate Account" action="{!validateUK}"
+        rendered="{!paymentType = 'recurring' && customerCodeRecord.id = null 
+            && (validateACH_Class.AUTHSTATUS != 'OK' || refNumberStatus != 'Registration OK')
+            && mPayment == 'ACH' && IATSAccountSystem == 'UK' 
+            && editPaymentInfo == true && IATSAccountCurrency != 'EURO'}" 
+        status="buttonstatusValidate" id="validateACHStart" disabled="true"/>
+       </apex:facet> 
+    </apex:actionStatus> 
+
+    <apex:actionStatus id="buttonstatusMandate"> 
+       <apex:facet name="stop">
+          <apex:commandButton value="Create SEPA Mandate ID" action="{!createSEPAMandateID}"
+        rendered="{!paymentType = 'recurring' && customerCodeRecord.id = null 
+            && (validateACH_Class.AUTHSTATUS != 'OK' || refNumberStatus != 'Registration OK')
+            && mPayment == 'ACH' && IATSAccountSystem == 'UK' && mandateId == null
+            && editPaymentInfo == true && IATSAccountCurrency == 'EURO'}" reRender="mainSection"
+        status="buttonstatusMandate" id="validateACHEURO"/> 
+       </apex:facet> 
+      
+       <apex:facet name="start">
+            <apex:commandButton value="Create SEPA Mandate ID" action="{!createSEPAMandateID}"
+        rendered="{!paymentType = 'recurring' && customerCodeRecord.id = null 
+            && (validateACH_Class.AUTHSTATUS != 'OK' || refNumberStatus != 'Registration OK')
+            && mPayment == 'ACH' && IATSAccountSystem == 'UK' && mandateId == null
+            && editPaymentInfo == true && IATSAccountCurrency == 'EURO'}" disabled="true"
+            status="buttonstatusMandate" id="validateACHEUROStart"/>
+       </apex:facet> 
+    </apex:actionStatus> 
+
+    <apex:actionStatus id="buttonstatusRecurring"> 
+       <apex:facet name="stop">
+           <apex:commandButton action="{!createUpdateRecurringButton}" 
+   reRender="counterStatus,updateRecurringWindow,errorMessage,paymentsMainBlock,updateRecurringButton,mainSection" 
+   value="{!IF((customerCodeRecurringAmount != '' && customerCodeRecurringAmount != '0.00') || (recurringPaymentsCreated == true),
+   'Update Recurring Payments','Create Recurring Payments')}"
+   status="buttonstatusRecurring" oncomplete="{!IF(recurringResponse != null,'updateRecurringFunction()','blankFunction()')}" 
+   id="updateRecurringButton" rendered="{!paymentType = 'recurring'}" 
+   disabled="{!mPayment == 'ACH' && customerCodeRecord.id = null && (validateACH_Class.AUTHSTATUS != 'OK' || refNumberStatus != 'Registration OK') 
+   && IATSAccountSystem == 'UK' && editPaymentInfo == true}"/>   
+       </apex:facet> 
+      
+       <apex:facet name="start">
+        <apex:commandButton action="{!createUpdateRecurringButton}" 
+   reRender="counterStatus,updateRecurringWindow,errorMessage,paymentsMainBlock,updateRecurringButton,mainSection" 
+   value="{!IF((customerCodeRecurringAmount != '' && customerCodeRecurringAmount != '0.00') || (recurringPaymentsCreated == true),
+   'Update Recurring Payments','Create Recurring Payments')}"
+   status="buttonstatusRecurring" oncomplete="{!IF(recurringResponse != null,'updateRecurringFunction()','blankFunction()')}" 
+   id="updateRecurringButtonStart" rendered="{!paymentType = 'recurring'}" disabled="true"/>   
+       </apex:facet> 
+    </apex:actionStatus> 
+
+  <apex:commandButton value="Clear CC Info" onclick="clearCCData();" 
+  rendered="{!mPayment = 'CC' && editPaymentInfo == true}" />
+   
+   <apex:commandButton onclick="parent.window.close()" value="Cancel" rendered="{!paymentType != ''}"/>
+   </apex:pageBlockButtons>  
+ 
+   <apex:pageBlockSection title="IATS Account Information" id="IATSInfo">
+   
+   <apex:pageBlockSectionItem id="selectAccountBlock" labelTitle="test" >
+   <apex:outputLabel value="Account Name" for="accountName"/>
+   <apex:selectList value="{!IATSAccountId}" size="1" id="accountName" disabled="{!oneAccount}">
+   <apex:selectOptions value="{!ClientCodeOptions}"/>
+   <apex:actionSupport event="onchange"  action="{!updateAccountSelected}" status="updateAccountStatus" 
+   reRender="selectAccountBlock,paymentsMainBlock,selectCustomerCodeBlock"/> 
+   </apex:selectList>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem id="selectCustomerCodeBlock" rendered="{!customerCodesExist}" >
+   <apex:outputLabel value="Customer Code" for="customerCode"/>
+   <apex:selectList value="{!customerCodeRecordid}" size="1" id="customerCode" disabled="true">
+   <apex:selectOptions value="{!CustomerCodeOptions}"/>
+   <apex:actionSupport event="onchange"  action="{!updateCustomerCodeSelected}" status="updateAccountStatus" 
+   reRender="selectAccountBlock,paymentsMainBlock,selectCustomerCodeBlock"/> 
+   </apex:selectList>  
+   </apex:pageBlockSectionItem>
+  
+   </apex:pageBlockSection> 
+   
+   <apex:pageBlockSection > 
+      
+   <apex:pageBlockSectionItem >
+   <apex:outputText ></apex:outputText>
+      <apex:actionStatus startText=" updating fields..." startStyle="color: blue" id="updateAccountStatus">
+   </apex:actionStatus>
+   </apex:pageBlockSectionItem>
+     
+   <apex:pageBlockSectionItem rendered="{!RelatedRecordsExist}">
+   <apex:outputLabel value="{!IF(RelatedRecordsMultiple, 'Related Records', 'Related Record')}"  style="color:blue"/>   
+   <apex:dataTable value="{!relatedRecords}" var="relatedRecordz" id="theList">
+      <apex:column >
+        <apex:outputLink value="{!baseURL}/{!relatedRecordz.recordId}" target="blank" id="theLink">{!relatedRecordz.recordName}</apex:outputLink>      
+      </apex:column>
+    </apex:dataTable>
+   </apex:pageBlockSectionItem> 
+    
+   </apex:pageBlockSection>
+   
+   
+    <!-- CREDIT CARD HOLDER INFORMATION SECTION -->  
+   <apex:pageBlockSection title="Payer Information" id="clientCodeInfo" > 
+   
+       
+   <apex:pageBlockSectionItem >
+   <apex:outputLabel value="First Name" for="firstName"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock" rendered="{!mPayment == 'ACH' && IATSAccountSystem == 'UK'}"/>
+   <apex:inputText value="{!firstName}" />
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>   
+   
+   <apex:pageBlockSectionItem >
+   <apex:outputLabel value="Last Name" for="lastName"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock" rendered="{!mPayment == 'ACH' && IATSAccountSystem == 'UK'}"/>
+   <apex:inputText value="{!lastName}"/>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem >
+   <apex:outputLabel value="Email" for="emailAddress"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:inputText value="{!emailAddress}"/>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem >
+   <apex:outputLabel value="Company Name" for="company"/>
+   <apex:inputText value="{!company}"/>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem >
+   <apex:outputLabel value="Street Address" for="streetAddress"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock" rendered="{!mPayment == 'ACH' && IATSAccountSystem == 'UK'}"/>
+   <apex:inputText value="{!StreetAddress}"/>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem >
+   <apex:outputLabel value="City" for="city"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock" rendered="{!mPayment == 'ACH' && IATSAccountSystem == 'UK'}"/>
+   <apex:inputText value="{!City}"/>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem >
+   <apex:outputLabel value="State/Province" for="stateProvince"/>
+   <apex:inputText value="{!StateProvince}"/>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem >
+   <apex:outputLabel value="Zip Code" for="zipCode"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!zipCode}"/> 
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   
+   </apex:pageBlockSection>
+   
+   <!-- PAYMENT TYPE SECTION -->  
+  <br />
+   
+ 
+    <!-- ONE TIME PAYMENT SECTION ------
+    ----------------------------------->
+   
+   <apex:pageBlockSection title="{!IF(gwa = null,'One-Time Payment', 'Payment Information')}" 
+   rendered="{!paymentType = 'onetime'}" id="oneTimePaymentSection">  
+   
+   <apex:pageBlockSectionItem id="entrymodeInfo"
+   rendered="{!editPaymentInfo == true  && mPayment = 'CC'}" >
+   <apex:outputLabel value="Credit Card Entry mode" for="entrymodeInfo" />
+   <apex:selectList id="enrymodelist" size="1" value="{!strEntryMode}" onchange="changeEntryMode(this);">
+       <apex:selectOption itemLabel="Manual" itemValue="Manual" ></apex:selectOption>
+       <apex:selectOption itemLabel="Card Reader" itemValue="CardReader" ></apex:selectOption>
+       <apex:actionSupport event="onchange" rerender="paymentsMainBlock" status="PaymentStatus" />  
+   </apex:selectList>
+   </apex:pageBlockSectionItem> 
+   
+   <apex:pageBlockSectionItem id="spaceHolder" rendered="{!editPaymentInfo == true  && mPayment = 'CC'}">
+   </apex:pageBlockSectionItem>   
+
+   <apex:pageBlockSectionItem > 
+   <apex:outputLabel value="Payment Method" rendered="{!((IATSAccountSystem == 'NA' &&
+   (IATSAccountCurrency = 'US Dollar' || IATSAccountCurrency = 'Canadian Dollar')) ||
+   (IATSAccountSystem == '' && IATSAccountCurrency =  ''))}"/>      
+   <apex:selectRadio value="{!mPayment}" disabled="{!editPaymentInfo == false}" rendered="{!((IATSAccountSystem == 'NA' &&
+   (IATSAccountCurrency = 'US Dollar' || IATSAccountCurrency = 'Canadian Dollar')) ||
+   (IATSAccountSystem == '' && IATSAccountCurrency =  ''))}">
+   <apex:selectOptions value="{!mPaymentOptions}" />
+   <apex:actionSupport event="onchange" rerender="paymentsMainBlock" status="PaymentStatus" />  
+   </apex:selectRadio>   
+   </apex:pageBlockSectionItem>
+
+   <apex:pageBlockSectionItem rendered="{!editPaymentInfo == false}" >     
+   <apex:commandLink value="Edit All Saved Payment Information" action="{!editPaymentInfoTrue}" 
+    reRender="paymentsMainBlock"
+   style="color:blue" status="PaymentStatus"/>    
+    </apex:pageBlockSectionItem>  
+    
+   <apex:pageBlockSectionItem id="spaceFiller" 
+   rendered="{!customerCodeRecord.name != '' && editPaymentInfo == true}"> 
+   </apex:pageBlockSectionItem>
+
+   <apex:pageBlockSectionItem id="savePaymentInfo" 
+   rendered="{!editPaymentInfo == true && customerCodeRecord.name == null && gwa = null}" >
+   <apex:outputLabel value="Save Payment Information" for="savePaymentInfo"/>
+   <apex:inputCheckbox value="{!savePaymentInfo}"/>
+   </apex:pageBlockSectionItem>
+   
+      
+   <apex:pageBlockSectionItem rendered="{!gwa != 's'}" >
+   <apex:outputLabel value="Total Amount" 
+    for="totalAmount"/>  
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!totalAmount}" id="totalAmount" disabled="{!gwa = 'c'}"/>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH'}">
+   <apex:outputLabel value="Account Type" for="mPayment"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:selectList value="{!ACHAccountType}" size="1" id="mPayment" disabled="{!editPaymentInfo == false}" >
+   <apex:selectOptions value="{!ACHAccountTypeOptions}" />
+   </apex:selectList>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountCurrency == 'Canadian Dollar'}">
+   <apex:outputLabel value="Bank Number" for="bankId"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!ACHbankId}" id="bankId" disabled="{!editPaymentInfo == false}" />
+   <apex:outputLink value="#">
+   <apex:image url="{!$Resource.IATSPayment__IATS_ACH_Help_Logo}" onclick="achCDNPopup()"/>
+   </apex:outputLink>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountCurrency == 'Canadian Dollar'}">
+   <apex:outputLabel value="Transit Number" for="transitId"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!ACHtransitId}" id="transitId" disabled="{!editPaymentInfo == false}" />
+   <apex:outputLink value="#">
+   <apex:image url="{!$Resource.IATSPayment__IATS_ACH_Help_Logo}" onclick="achCDNPopup()"/>
+   </apex:outputLink>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountCurrency == 'UK Pound'
+   && IATSAccountSystem == 'UK'}">
+   <apex:outputLabel value="Sort Code" for="sortCode"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!ACH_SortCode}" id="sortCode" disabled="{!editPaymentInfo == false}" />
+   <apex:outputLink value="#">
+   <apex:image url="{!$Resource.IATSPayment__IATS_ACH_Help_Logo}" onclick="achUKPopup()"/>
+   </apex:outputLink>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+  
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountSystem == 'NA'
+   && IATSAccountCurrency = 'US Dollar' || (mPayment == 'ACH' && IATSAccountSystem == '' 
+   && IATSAccountCurrency == '')}">
+   <apex:outputLabel value="Routing Number" for="routingNumber"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!ACHroutingNumber}" id="routingNumber" disabled="{!editPaymentInfo == false}" />
+   <apex:outputLink value="#">
+   <apex:image url="{!$Resource.IATSPayment__IATS_ACH_Help_Logo}" onclick="achUSPopup()"/>
+   </apex:outputLink>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH'}">
+   <apex:outputLabel value="Account Number" for="accountNumber"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>   
+   <apex:inputText value="{!ACHaccountNumber}" id="accountNumber" disabled="{!editPaymentInfo == false}" />
+   <apex:outputLink value="#">
+   <apex:image url="{!$Resource.IATSPayment__IATS_ACH_Help_Logo}" 
+   onclick="{!IF(IATSAccountCurrency == 'Canadian Dollar', "achCDNPopup()", 
+   IF(IATSAccountCurrency == 'UK Pound', "achUKPopup()", "achUSPopup()"))}"/>
+   </apex:outputLink>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+  
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'CC'}" id="creditCardTypeSection">
+   <apex:outputLabel value="Credit Card Type" for="creditCardType1"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:selectList value="{!creditCardType}" size="1" disabled="{!editPaymentInfo == false}" id="creditCardType1">
+   <apex:selectOptions value="{!CreditCardTypeOptions}" />
+   </apex:selectList>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'CC'}" id="creditCardNumber" >
+   <apex:outputLabel value="Credit Card Number" for="creditCardNumber"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText id="txtCreditcardNumber" value="{!creditCardNumber}" onfocus="focusOnCC(this);" onkeypress="return disableEnterKey(event);" onkeyup="parseCreditNumberExpDate(this,event)" disabled="{!editPaymentInfo == false}"/>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem helpText="Please enter the expiration date in the following format 'MM/YY'" id="expirtyDate" 
+   rendered="{!mPayment == 'CC'}">
+   <apex:outputLabel value="Credit Card Expiry Date: (mm/yy)" for="CreditCardExpDate"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText id="txtExpiryDate" value="{!creditCardExpDate}" disabled="{!editPaymentInfo == false && editCCExpiryDateInfo == false}"/>
+   &nbsp;
+   <apex:commandLink rendered="{!editPaymentInfo == false && editCCExpiryDateInfo == false}"  value="Edit" action="{!editCCExpiryDate}" 
+   reRender="paymentsMainBlock"   
+   style="color:blue" status="PaymentStatus" 
+   />
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>   
+ 
+   <apex:pageBlockSectionItem >
+   <apex:outputLabel value="Invoice Number" for="invoiceNumber"/>
+   <apex:inputText value="{!invoiceNumber}"/>
+   </apex:pageBlockSectionItem>
+
+   
+   </apex:pageBlockSection>
+   
+   
+     <!-- RECURRING PAYMENT SECTION ------------------
+     ------------------------------------------------->
+     
+   <apex:pageBlockSection title="Recurring Payments" rendered="{!paymentType = 'recurring'}" id="recurringPageBlockSection">
+   <apex:pageBlockSectionItem id="recurringStatus">
+   <apex:outputLabel value="Status" for="recurringStatus"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:selectList value="{!recurringStatus}" size="1" disabled="{!(customerCodeRecurringAmount == '' || customerCodeRecurringAmount == '0.00') && recurringPaymentsCreated == false}">
+   <apex:selectOptions value="{!recurringStatusOptions}"/>
+   </apex:selectList>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>   
+   
+   <apex:pageBlockSectionItem id="recurringAmount">
+   <apex:outputLabel value="Recurring Amount" for="recurringAmount"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!RecurringAmount}" />
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+    
+   <apex:pageBlockSectionItem >
+   <apex:outputLabel value="Begin Date: " for="recurringBeginDate"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputField value="{!recurringBeginDateOppHolder.closeDate}" id="recurringBeginDate" required="false"/>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+    <apex:pageBlockSectionItem >   
+   <apex:outputLabel value="End Date: " for="recurringEndDate"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputField value="{!recurringEndDateOppHolder.closeDate}" id="recurringEndDate" required="false"/>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem> 
+  
+    <apex:pageBlockSectionItem >
+   <apex:outputLabel value="Schedule Type" for="recurringScheduleType"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:selectList value="{!recurringScheduleType}" size="1" id="recurringScheduleType">
+   <apex:selectOptions value="{!recurringScheduleTypeOptions}"/>
+   <apex:actionSupport event="onchange" rerender="scheduleDateLabel,scheduleDateRequired"/> 
+   </apex:selectList>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem id="scheduleDateSection">
+   <apex:outputPanel id="scheduleDateLabel" >
+   <apex:outputLabel value="Schedule Date" for="recurringScheduleDate"   
+   rendered="{!recurringScheduleType != 'ANNUALLY' && recurringScheduleType != 'QUARTERLY' && recurringScheduleType != null}"/>
+   </apex:outputPanel>
+   <apex:outputPanel styleClass="requiredInput" id="scheduleDateRequired">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:selectList value="{!recurringScheduleDate}" size="1" id="scheduleOptions"   
+   rendered="{!recurringScheduleType != 'ANNUALLY' && recurringScheduleType != 'QUARTERLY' && recurringScheduleType != null}">
+   <apex:selectOptions value="{!recurringScheduleDateOptions}"/>
+   </apex:selectList>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+
+   <apex:pageBlockSectionItem > 
+   <apex:outputLabel value="Payment Method" for="paymentType" rendered="{!IATSAccountSystem == 'UK'&& 
+   (IATSAccountCurrency == 'UK Pound' || IATSAccountCurrency == 'EURO')
+   || ((IATSAccountSystem == 'NA' &&
+   (IATSAccountCurrency = 'US Dollar' || IATSAccountCurrency = 'Canadian Dollar')) ||
+   (IATSAccountSystem == '' && IATSAccountCurrency =  ''))}"/>      
+   <apex:selectRadio value="{!mPayment}" id="paymentType" disabled="{!editPaymentInfo == false || (customerCodeRecord.name != '' && IATSAccountSystem == 'UK')}"
+   rendered="{!IATSAccountSystem == 'UK' && (IATSAccountCurrency == 'UK Pound' || IATSAccountCurrency == 'EURO')
+   || ((IATSAccountSystem == 'NA' &&
+   (IATSAccountCurrency = 'US Dollar' || IATSAccountCurrency = 'Canadian Dollar')) ||
+   (IATSAccountSystem == '' && IATSAccountCurrency =  ''))}">
+       <apex:selectOptions value="{!mPaymentOptions}" />
+   <apex:actionSupport event="onchange" rerender="paymentsMainBlock"  status="PaymentStatus" action="{!setterForRecurringDates}" />     
+   </apex:selectRadio> 
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem rendered="{!customerCodeRecord.name != '' && editPaymentInfo == false 
+   ||(mPayment == 'ACH' && IATSAccountSystem == 'UK' && validateACH_Class.AUTHSTATUS == 'OK')}">     
+   <apex:commandLink value="Edit Saved Payment Information" action="{!editPaymentInfoTrue}" 
+   reRender="paymentsMainBlock"   
+   style="color:blue" status="PaymentStatus" 
+   oncomplete="{!IF(mPayment == 'ACH' && IATSAccountCurrency == 'UK Pound'
+   && IATSAccountSystem == 'UK' && 
+   ((customerCodeRecurringAmount != '' && customerCodeRecurringAmount != '0.00') || customerCodeRecord != null),
+   'updateRecurringUKFunction()','blankFunction()')}"/>    
+   </apex:pageBlockSectionItem>    
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment != 'CC' && (editPaymentInfo == true || customerCodeRecord.name == '')}">  
+   </apex:pageBlockSectionItem>   
+   
+   <apex:pageBlockSectionItem id="entrymodeInfo"
+   rendered="{!editPaymentInfo == true && mPayment = 'CC'}" >
+   <apex:outputLabel value="Credit Card Entry mode" for="entrymodeInfo" />
+   <apex:selectList id="enrymodelist" size="1" value="{!strEntryMode}" onchange="changeEntryModeRC(this);">
+       <apex:selectOption itemLabel="Manual" itemValue="Manual" ></apex:selectOption>
+       <apex:selectOption itemLabel="Card Reader" itemValue="CardReader" ></apex:selectOption>
+   </apex:selectList>
+   </apex:pageBlockSectionItem> 
+  
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountSystem != 'UK'}">
+   <apex:outputLabel value="Account Type" for="ACHAccountType"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:selectList value="{!ACHAccountType}" size="1" id="ACHAccountType" 
+   disabled="{!editPaymentInfo == false}">
+   <apex:selectOptions value="{!ACHAccountTypeOptions}"/>
+   </apex:selectList>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+  <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountCurrency == 'Canadian Dollar'}">
+   <apex:outputLabel value="Bank Number" for="bankId"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!ACHbankId}" id="bankId" disabled="{!editPaymentInfo == false}" />
+   <apex:outputLink value="#">
+   <apex:image url="{!$Resource.IATSPayment__IATS_ACH_Help_Logo}" onclick="achCDNPopup()"/>
+   </apex:outputLink>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountCurrency == 'Canadian Dollar'}">
+   <apex:outputLabel value="Transit Number" for="transitId"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!ACHtransitId}" id="transitId" disabled="{!editPaymentInfo == false}" />
+   <apex:outputLink value="#">
+   <apex:image url="{!$Resource.IATSPayment__IATS_ACH_Help_Logo}" onclick="achCDNPopup()"/>
+   </apex:outputLink>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+  
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountCurrency == 'UK Pound'
+   && IATSAccountSystem == 'UK'}">
+   <apex:outputLabel value="Sort Code" for="sortCode"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!ACH_SortCode}" id="sortCode" disabled="{!editPaymentInfo == false}" />
+   <apex:outputLink value="#">
+   <apex:image url="{!$Resource.IATSPayment__IATS_ACH_Help_Logo}" onclick="achUKPopup()"/>
+   </apex:outputLink>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <!--
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountCurrency == 'EURO'
+   && IATSAccountSystem == 'UK'}">
+   <apex:outputLabel value="Bank ID (BIC)" for="sortCode"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!ACHbankId}" id="sortCode" disabled="{!editPaymentInfo == false}" />
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   -->
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountSystem == 'NA'
+   && IATSAccountCurrency = 'US Dollar' || (mPayment == 'ACH' && IATSAccountSystem == '' 
+   && IATSAccountCurrency == '')}">
+   <apex:outputLabel value="Routing Number" for="routingNumber"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!ACHroutingNumber}" id="routingNumber" disabled="{!editPaymentInfo == false}" />
+   <apex:outputLink value="#">
+   <apex:image url="{!$Resource.IATSPayment__IATS_ACH_Help_Logo}" onclick="achUSPopup()"/>
+   </apex:outputLink>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountCurrency != 'EURO'}">
+   <apex:outputLabel value="Account Number" for="accountNumber"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>   
+   <apex:inputText value="{!ACHaccountNumber}" id="accountNumber" disabled="{!editPaymentInfo == false}" />
+   <apex:outputLink value="#">
+   <apex:image url="{!$Resource.IATSPayment__IATS_ACH_Help_Logo}" 
+   onclick="{!IF(IATSAccountCurrency == 'Canadian Dollar', "achCDNPopup()", 
+   IF(IATSAccountCurrency == 'UK Pound', "achUKPopup()", "achUSPopup()"))}"/>
+   </apex:outputLink>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+    <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountCurrency == 'EURO'}">
+   <apex:outputLabel value="Account (IBAN)" for="accountNumber"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>   
+   <apex:inputText value="{!ACHaccountNumber}" id="bankId" disabled="{!editPaymentInfo == false}" />
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountCurrency == 'EURO'}">
+   <apex:outputLabel value="Mandate Signing Date" for="accountNumber"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>   
+        <apex:outputPanel layout="none" rendered="{!editPaymentInfo == true}"> 
+            <apex:inputField required="false" value="{!recurringMandateOppHolder.CloseDate}" 
+                id="mandateSigningDate" />
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!editPaymentInfo == false}"> 
+            <apex:outputField value="{!recurringMandateOppHolder.CloseDate}" 
+                id="mandateSigningDateDisplay" />
+        </apex:outputPanel>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   
+   <apex:pageBlockSectionItem rendered="{!mPayment == 'ACH' && IATSAccountCurrency == 'EURO'}">
+   <apex:outputLabel value="Mandate ID" for="accountNumber"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>   
+   <apex:inputText value="{!mandateID}" id="mandateId" disabled="true" />
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+   <apex:pageBlockSectionItem id="bankInfo" rendered="{!validateACH_Class.AUTHSTATUS == 'OK'}">
+   <apex:outputLabel value="Bank Information"/>
+      {!validateACH_Class.BANK_NAME}<br/>
+      {!validateACH_Class.BANKADDRESS1}
+      {!validateACH_Class.BANKADDRESS2}
+      {!validateACH_Class.BANKADDRESS3}
+      {!validateACH_Class.BANKADDRESS4}<br/>
+      {!validateACH_Class.BANK_CITY},&nbsp;
+      {!validateACH_Class.BANK_STATE}&nbsp;
+      {!validateACH_Class.BANK_POSTCODE}
+      <i>Reference Number: {!validateACH_Class.ACHREFNUM}</i>
+  </apex:pageBlockSectionItem>
+  
+  <apex:pageBlockSectionItem id="IATSInfo" rendered="{!validateACH_Class.STATUS == 'Failure'}">
+   <apex:outputLabel value="IATS Message"/>
+   <i>Connection to IATS server failed!</i> <br/> 
+   {!validateACH_Class.ERRORS}
+  </apex:pageBlockSectionItem>
+  
+  <apex:pageBlockSectionItem id="bankInfoRej" rendered="{!validateACH_Class.AuthStatus == 'REJ'}">
+   <apex:outputLabel value="Bank Message"/>
+   <i>Validation Rejected</i> <br/>    
+      {!validateACH_Class.BANKERROR}<br/>
+      {!validateACH_Class.AUTHCODE}<br/>
+  </apex:pageBlockSectionItem>
+  
+    <apex:pageBlockSectionItem rendered="{!mPayment == 'CC'}" id="ccTypeSectionItemRP">
+   <apex:outputLabel value="Credit Card Type" for="creditCardType2"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:selectList value="{!creditCardType}" size="1" disabled="{!editPaymentInfo == false}" id="creditCardType2">
+   <apex:selectOptions value="{!CreditCardTypeOptions}"/>
+   </apex:selectList>
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>
+   
+  <apex:pageBlockSectionItem rendered="{!mPayment == 'CC'}" id="ccSectionItemRP">
+   <apex:outputLabel value="Credit Card Number" for="creditCardNumber"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText value="{!creditCardNumber}" id="txtCreditcardNumberRP" onfocus="focusOnCC(this);" onkeypress="return disableEnterKey(event);" onkeyup="parseCreditNumberExpDate(this,event)" disabled="{!editPaymentInfo == false}"/>
+   </apex:outputPanel> 
+   </apex:pageBlockSectionItem>
+   
+    <apex:pageBlockSectionItem rendered="{!mPayment == 'CC'}" id="expDateSectionItemRP">
+   <apex:outputLabel value="Credit Card Expiry Date: (mm/yy)" for="CreditCardExpDate"/>
+   <apex:outputPanel layout="block" styleClass="requiredInput">
+   <apex:outputPanel layout="block" styleClass="requiredBlock"/>
+   <apex:inputText id="txtExpiryDateRP" value="{!creditCardExpDate}" disabled="{!editPaymentInfo == false && editCCExpiryDateInfo == false}">
+   </apex:inputText>
+   &nbsp;
+   <apex:commandLink rendered="{!editPaymentInfo == false && editCCExpiryDateInfo == false}"  value="Edit" action="{!editCCExpiryDate}" 
+   reRender="paymentsMainBlock"   
+   style="color:blue" status="PaymentStatus" 
+   />  
+      
+   </apex:outputPanel>
+   </apex:pageBlockSectionItem>   
+   
+  </apex:pageBlockSection>
+   
+  </apex:pageBlock>
+  </apex:outputPanel>
+</body>
+</apex:form>   
+</apex:page>

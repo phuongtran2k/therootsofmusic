@@ -1,0 +1,18 @@
+/*
+This file is generated and isn't the actual source code for this
+managed global class.
+This read-only file shows the class's global constructors,
+methods, variables, and properties.
+To enable code to compile, all methods return null.
+*/
+global class TDTM_Config_API {
+    global TDTM_Config_API() {
+
+    }
+    global static List<npsp__Trigger_Handler__c> getCachedRecords() {
+        return null;
+    }
+    global static List<npsp__Trigger_Handler__c> getDefaultRecords() {
+        return null;
+    }
+}

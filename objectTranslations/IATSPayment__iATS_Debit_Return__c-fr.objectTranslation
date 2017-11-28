@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Retour iATS</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Retours iATS</value>
+    </caseValues>
+    <fields>
+        <label><!-- ACH Account Number --></label>
+        <name>IATSPayment__ACH_Account_Number__c</name>
+    </fields>
+    <fields>
+        <help>Plus d&apos;informations sur les retours BACS UK est disponible via le lien &apos;Aide pour cette page&apos;.</help>
+        <label><!-- BACS Report Type (UK) --></label>
+        <name>IATSPayment__BACS_Report_Type_UK__c</name>
+    </fields>
+    <fields>
+        <label><!-- Currency --></label>
+        <name>IATSPayment__Currency_del__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date --></label>
+        <name>IATSPayment__Effective_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Number --></label>
+        <name>IATSPayment__Invoice_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Journal ID --></label>
+        <name>IATSPayment__Journal_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Method of Payment --></label>
+        <name>IATSPayment__Method_of_Payment__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Amount --></label>
+        <name>IATSPayment__New_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original Transaction Date --></label>
+        <name>IATSPayment__Original_Transaction_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer Account Number --></label>
+        <name>IATSPayment__Payer_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer Name --></label>
+        <name>IATSPayment__Payer_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer New Name --></label>
+        <name>IATSPayment__Payer_New_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer New Sort Code --></label>
+        <name>IATSPayment__Payer_New_Sort_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer New Account Number --></label>
+        <name>IATSPayment__Payers_New_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer Sort Code --></label>
+        <name>IATSPayment__Payers_Sort_Code__c</name>
+    </fields>
+    <fields>
+        <help>Plus d&apos;informations sur les retours BACS UK sont disponibles via le lien &apos;Aide pour cette page&apos;.</help>
+        <label><!-- Return Code --></label>
+        <name>IATSPayment__Reason_Code__c</name>
+    </fields>
+    <fields>
+        <help>Plus d&apos;informations sur les retours BACS UK sont disponibles via le lien &apos;Aide pour cette page&apos;.</help>
+        <label><!-- Return Description --></label>
+        <name>IATSPayment__Reason_Desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference Number --></label>
+        <name>IATSPayment__Reference_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Return Amount --></label>
+        <name>IATSPayment__Return_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Return Date --></label>
+        <name>IATSPayment__Return_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- UK BACS ID --></label>
+        <name>IATSPayment__UK_BACS_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- iATS Account --></label>
+        <name>IATSPayment__iATS_Account_del__c</name>
+        <relationshipLabel><!-- iATS Returns --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- iATS Customer Code --></label>
+        <name>IATSPayment__iATS_Customer_Code__c</name>
+        <relationshipLabel><!-- iATS Returns --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- iATS Transaction --></label>
+        <name>IATSPayment__iATS_Transaction__c</name>
+        <relationshipLabel><!-- iATS Returns --></relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <nameFieldLabel>ID Retour</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

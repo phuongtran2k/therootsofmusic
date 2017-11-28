@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>IATSPayment__iATS_Debit_Return__c.IATSPayment__Return_Amount__c</field>
+    </columns>
+    <columns>
+        <field>IATSPayment__iATS_Debit_Return__c.IATSPayment__Return_Date__c</field>
+    </columns>
+    <columns>
+        <field>IATSPayment__iATS_Debit_Return__c.IATSPayment__Reason_Code__c</field>
+    </columns>
+    <columns>
+        <field>IATSPayment__iATS_Debit_Return__c.IATSPayment__Reason_Desc__c</field>
+    </columns>
+    <columns>
+        <field>IATSPayment__iATS_Debit_Return__c.IATSPayment__Reference_Number__c</field>
+    </columns>
+    <columns>
+        <field>IATSPayment__iATS_Debit_Return__c.IATSPayment__BACS_Report_Type_UK__c</field>
+    </columns>
+    <columns>
+        <field>IATSPayment__iATS_Debit_Return__c.IATSPayment__iATS_Account_del__c</field>
+    </columns>
+    <columns>
+        <field>IATSPayment__iATS_Debit_Return__c.IATSPayment__iATS_Transaction__c</field>
+    </columns>
+    <columns>
+        <field>IATSPayment__iATS_Debit_Return__c.IATSPayment__iATS_Customer_Code__c</field>
+    </columns>
+    <description>All returns</description>
+    <format>Tabular</format>
+    <name>All Returns</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$IATSPayment__iATS_Debit_Return__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>IATSPayment__iATS_Debit_Return__c.IATSPayment__Effective_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

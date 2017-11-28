@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Transaction iATS</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Transactions iATS</value>
+    </caseValues>
+    <fields>
+        <help>Les 4 derniers chiffres de la ACH</help>
+        <label><!-- ACH Account Number --></label>
+        <name>IATSPayment__ACH_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ACH Account Type --></label>
+        <name>IATSPayment__ACH_Account_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>IATSPayment__Account__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Amount (Text Field) --></label>
+        <name>IATSPayment__Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>IATSPayment__Amount_currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>IATSPayment__Contact__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contract --></label>
+        <name>IATSPayment__Contract__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Expiry Date --></label>
+        <name>IATSPayment__Credit_Card_Expiry_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Type --></label>
+        <name>IATSPayment__Credit_Card_Type__c</name>
+    </fields>
+    <fields>
+        <help>Les 4 derniers chiffres de la carte de credit</help>
+        <label><!-- Credit Card Number --></label>
+        <name>IATSPayment__Credit_Card__c</name>
+    </fields>
+    <fields>
+        <label><!-- Currency --></label>
+        <name>IATSPayment__Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date --></label>
+        <name>IATSPayment__Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- iATS Merchant Account --></label>
+        <name>IATSPayment__IATS_Account__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- iATS Customer Code --></label>
+        <name>IATSPayment__IATS_Customer_Code__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Invoice Number --></label>
+        <name>IATSPayment__Invoice_Number__c</name>
+    </fields>
+    <fields>
+        <help>Le numero d&apos;identification unique attribut par iATS. Il est utilis� pour connecter les transactions iats ACH aux nouveaux enregistrements de retour.</help>
+        <label><!-- Journal ID --></label>
+        <name>IATSPayment__Journal_ID__c</name>
+    </fields>
+    <fields>
+        <help>L&apos;ID de mandat SEPA pour les transactions de débit EURO. Une ID unique est attribuée à chaque donateur et est liée à son code client iATS.</help>
+        <label><!-- Mandate ID --></label>
+        <name>IATSPayment__Mandate_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mandate ID - Deprecated --></label>
+        <name>IATSPayment__Mandate_ID_del__c</name>
+    </fields>
+    <fields>
+        <label><!-- Method of Payment --></label>
+        <name>IATSPayment__Method_of_Payment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>IATSPayment__Opportunity__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Payer Address --></label>
+        <name>IATSPayment__Payer_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer City --></label>
+        <name>IATSPayment__Payer_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer First Name --></label>
+        <name>IATSPayment__Payer_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer Last Name --></label>
+        <name>IATSPayment__Payer_Last_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer State --></label>
+        <name>IATSPayment__Payer_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payer Zip Code --></label>
+        <name>IATSPayment__Payer_Zip_Code__c</name>
+    </fields>
+    <fields>
+        <help>L&apos;état de la transaction iATS. Il indiquera &quot;OK Approved&quot; s&apos;il est réussi, &quot;Reject&quot; s&apos;il est rejeté et &quot;Return&quot; si une transaction ACH / DD réussie a été retournée à une date ultérieure. Cliquez sur le lien &apos;iATS Debit Return&apos; pour plus d&apos;informations.</help>
+        <label><!-- Status --></label>
+        <name>IATSPayment__Status__c</name>
+    </fields>
+    <fields>
+        <help>Applicable pour les comptes iATS qui utilisent le traitement de débit direct UK avec iATS. Le numéro de référence est le nombre unique de donateurs associé à leur instruction DD (DDI).</help>
+        <label><!-- UK DD Reference --></label>
+        <name>IATSPayment__UK_DD_Reference__c</name>
+    </fields>
+    <fields>
+        <label><!-- UK DD Reference - Deprecated --></label>
+        <name>IATSPayment__UK_DD_Reference_del_del__c</name>
+    </fields>
+    <fields>
+        <help>L&apos;enregistrement de retour iATS est lié à cette transaction. Pour plus d&apos;informations, cliquez sur le lien de l&apos;enregistrement pour voir la raison de retour. Si pour DD UK, cliquez sur le lien «Aide pour cette page» pour les éléments d&apos;action.</help>
+        <label><!-- iATS Debit Return --></label>
+        <name>IATSPayment__iATS_Debit_Return_del__c</name>
+        <relationshipLabel><!-- iATS Transactions --></relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <nameFieldLabel>ID Transaction</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- error --></errorMessage>
+        <name>IATSPayment__validation_test</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Refund --></label>
+        <name>IATSPayment__Refund</name>
+    </webLinks>
+</CustomObjectTranslation>

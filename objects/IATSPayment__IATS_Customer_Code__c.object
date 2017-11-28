@@ -1,0 +1,1165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Utilized to track saved credit card and recurring payment information.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>IATSPayment__ACH_Account_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Last 4 digits of ACH account number</inlineHelpText>
+        <label>ACH/Direct Debit Account Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__ACH_Account_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>ACH/Direct Debit Account Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__ACH_Reference_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Applicable for iATS Accounts that utilize UK Direct Debit processing with iATS. The Reference number is the donors unique number associated to their DD Instruction (DDI).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Applicable for iATS Accounts that utilize UK Direct Debit processing with iATS. The Reference number is the donors unique number associated to their DD Instruction (DDI).</inlineHelpText>
+        <label>Direct Debit Reference Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>IATS_Customer_Codes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Auction_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Utilized in conjunction with &apos;Auctions for Salesforce&apos; by Groundwire.</inlineHelpText>
+        <label>Auction ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Batch_Update_Failure_Details__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to display the Failure Details for the last time this record was included in a Batch Update Process.</inlineHelpText>
+        <label>Last Batch Update Failure Details</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Batch_Update_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to display the last batch update status value for the this record after it was included in a Batch Update Process.</inlineHelpText>
+        <label>Last Batch Update Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Processed</fullName>
+                    <default>true</default>
+                    <label>Not Processed</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Failure</fullName>
+                    <default>false</default>
+                    <label>Failure</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Complete_Batch_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box to include this record to be included in the next Batch Update Process (via the iATS Settings Batch feature). 
+This field will automatically be unchecked once the Last Batch Status changes to either Success or Failure.</inlineHelpText>
+        <label>Include in Next Batch Update Process</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>IATS_Customer_Codes</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Credit_Card_Expiry_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credit Card Expiry Date (MM/YY)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Credit_Card_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Last 4 digits of credit card number</inlineHelpText>
+        <label>Credit Card Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Credit_Card_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credit Card Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Direct_Debit_Registration_Error__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Applicable for iATS Accounts that utilize UK Direct Debit processing with iATS. The Reference number is registered with BACS via our UK acquirer Smart Debit. Should indicate a successful status or an error. See Status field for more information.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Applicable for iATS Accounts that utilize UK Direct Debit processing with iATS. The Reference number is registered with BACS via our UK acquirer Smart Debit. Should indicate a successful status or an error. See Status field for more information.</inlineHelpText>
+        <label>Direct Debit Registration Error</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Direct_Debit_Registration_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Applicable for iATS Accounts that utilize UK Direct Debit processing with iATS. The Reference number is registered with BACS via our UK acquirer Smart Debit. Should indicate a successful status or an error. See Error field for more information.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Applicable for iATS Accounts that utilize UK Direct Debit processing with iATS. The Reference number is registered with BACS via our UK acquirer Smart Debit. Should indicate a successful status or an error. See Error field for more information.</inlineHelpText>
+        <label>Direct Debit Registration Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__FAPS_Credit_Card_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>DO NOT EDIT. This value is the ID generated within the 1st Pay processing system and is linked to the stored CC number. Used only for USD iATS Merchant Accounts who use the First American 1st Pay platform.</inlineHelpText>
+        <label>1st Pay Credit Card ID (CIM Vault)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__FAPS_Recurring_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>DO NOT EDIT. This value is the ID generated within the 1st Pay processing system and is linked to the stored recurring schedule (called transaction). Used only for USD iATS Merchant Accounts who use the First American 1st Pay platform.</inlineHelpText>
+        <label>1st Pay Recurring ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__IATS_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>iATS Merchant Account</label>
+        <referenceTo>IATSPayment__IATS_Account__c</referenceTo>
+        <relationshipLabel>iATS Customer Codes</relationshipLabel>
+        <relationshipName>IATS_Customer_Codes</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Last_Batch_Processing_Date_Time__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to display the Date/Time value for the last time this record was included in a Batch Update Process.</inlineHelpText>
+        <label>Last Batch Update Date/Time</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Mandate_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The SEPA Mandate ID for EURO bank debit transactions. Unique ID assigned to each donor and linked to their iATS Customer Code record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The SEPA Mandate ID for EURO bank debit transactions. Unique ID assigned to each donor and linked to their iATS Customer Code record.</inlineHelpText>
+        <label>Mandate ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Mandate_Signing_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date Mandate ID created for SEPA Euro Debit. Will normally reflect Recurring Payments Begin Date on Customer Code. DO NOT EDIT.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date Mandate ID created for SEPA Euro Debit. Will normally reflect Recurring Payments Begin Date on Customer Code. DO NOT EDIT.</inlineHelpText>
+        <label>Mandate Signing Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Method_of_Payment__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Method of Payment</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Set if the customer code is related to only one opportunity (donation) record.</inlineHelpText>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipName>IATS_Customer_Codes</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Payer_Address__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payer Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Payer_City__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payer City</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Payer_Country__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payer Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Payer_Email__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payer Email</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Payer_First_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payer First Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Payer_Last_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payer Last Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Payer_State__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payer State</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Payer_Zip_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payer Zip Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Recurring_Payment_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Recurring Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Recurring_Payment_Begin_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Recurring Payment Begin Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Recurring_Payment_End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Recurring Payment End Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Recurring_Payment_Schedule_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Applicable for &apos;Weekly&apos; and &apos;Monthly&apos; Recurring Payment Schedule Types.</inlineHelpText>
+        <label>Recurring Payment Schedule Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Recurring_Payment_Schedule_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Recurring Payment Schedule Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Recurring_Payment_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Recurring Payment Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Total_Amount_of_Approved_Transactions__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Do not edit. Will automatically update. IATS Brickwork field.</inlineHelpText>
+        <label>Total Amount of Approved Transactions</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Total_Number_of_Approved_Transactions__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Do not edit. Will automatically update. IATS Brickwork field.</inlineHelpText>
+        <label>Total Number of Approved Transactions</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__Total_Number_of_Rejected_Transactions__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Do not edit. Will automatically update. IATS Brickwork field.</inlineHelpText>
+        <label>Total Number of Rejected Transactions</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IATSPayment__iATS_UK_AUDDIS_Return_del__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The UK BACS AUDDIS iATS Return record that is related to this Customer Code.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The UK BACS AUDDIS iATS Return record related to this Customer Code. For more information on the iATS Return, or what action you should take, click the record link and then the &quot;Help for this Page&quot; link in the top right corner of the Return record.</inlineHelpText>
+        <label>iATS UK AUDDIS Return</label>
+        <referenceTo>IATSPayment__iATS_Debit_Return__c</referenceTo>
+        <relationshipLabel>iATS Customer Codes</relationshipLabel>
+        <relationshipName>iATS_Customer_Codes_del</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IATS_recurring__Recurring_Donation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Recurring Donation</label>
+        <referenceTo>npe03__Recurring_Donation__c</referenceTo>
+        <relationshipLabel>iATS Customer Codes</relationshipLabel>
+        <relationshipName>iATS_Customer_Codes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>iATS Customer Code</label>
+    <listViews>
+        <fullName>IATSPayment__All_Codes</fullName>
+        <columns>NAME</columns>
+        <columns>IATSPayment__Opportunity__c</columns>
+        <columns>IATSPayment__Contact__c</columns>
+        <columns>IATSPayment__Method_of_Payment__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>IATSPayment__Recurring_Payment_Begin_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>IATSPayment__Batch_Updates_Failed</fullName>
+        <columns>NAME</columns>
+        <columns>IATSPayment__Last_Batch_Processing_Date_Time__c</columns>
+        <columns>IATSPayment__Batch_Update_Status__c</columns>
+        <columns>IATSPayment__Batch_Update_Failure_Details__c</columns>
+        <columns>IATSPayment__Complete_Batch_Update__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>IATSPayment__Batch_Update_Status__c</field>
+            <operation>equals</operation>
+            <value>Failure</value>
+        </filters>
+        <label>Batch Updates Failed</label>
+    </listViews>
+    <listViews>
+        <fullName>IATSPayment__Batch_Updates_To_Include_in_Next_Batch</fullName>
+        <columns>NAME</columns>
+        <columns>IATSPayment__Complete_Batch_Update__c</columns>
+        <columns>IATSPayment__Contact__c</columns>
+        <columns>IATSPayment__Method_of_Payment__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>IATSPayment__Complete_Batch_Update__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Batch Updates To Include in Next Batch</label>
+    </listViews>
+    <nameField>
+        <label>Customer Code</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>iATS Customer Codes</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>IATSPayment__Method_of_Payment__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IATSPayment__IATS_Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IATSPayment__Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IATSPayment__Opportunity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>IATSPayment__Method_of_Payment__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IATSPayment__Recurring_Payment_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IATSPayment__Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IATSPayment__IATS_Account__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>IATSPayment__ACH_Bank_Numbers_Changed</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( IATSPayment__Complete_Batch_Update__c, 
+ISCHANGED(IATSPayment__ACH_Account_Number__c), 
+!ISNEW() 
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__ACH_Account_Number__c</errorDisplayField>
+        <errorMessage>ACH/Direct Debit Account Number cannot be adjusted via Update Processing.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__ACH_Direct_Debit_Account_Number</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+IATSPayment__Complete_Batch_Update__c == true, 
+OR( 
+IATSPayment__Method_of_Payment__c = &apos;ACH&apos;,
+IATSPayment__Method_of_Payment__c = &apos;ACH/Direct Debit&apos;), 
+ISBLANK( IATSPayment__ACH_Account_Number__c) 
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__ACH_Account_Number__c</errorDisplayField>
+        <errorMessage>ACH/Direct Debit Bank Number must be provided if the method of payment is set to &apos;ACH&apos; or &apos;ACH/Direct Debit&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__ACH_Direct_Debit_Account_Type</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+IATSPayment__Complete_Batch_Update__c == true, 
+OR( 
+IATSPayment__Method_of_Payment__c = &apos;ACH&apos;, 
+IATSPayment__Method_of_Payment__c = &apos;ACH/Direct Debit&apos;), 
+ISBLANK(IATSPayment__ACH_Account_Type__c) 
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__ACH_Account_Type__c</errorDisplayField>
+        <errorMessage>ACH/Direct Debit Account Type must be provided if the method of payment is set to &apos;ACH&apos; or &apos;ACH/Direct Debit&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__ACH_Direct_Debit_Account_Type_Selection</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+!ISBLANK(IATSPayment__ACH_Account_Type__c),
+IATSPayment__ACH_Account_Type__c != &apos;Checking&apos;,
+IATSPayment__ACH_Account_Type__c != &apos;Savings&apos;
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__ACH_Account_Type__c</errorDisplayField>
+        <errorMessage>ACH/Direct Debit Account Type must be &apos;Checking&apos; or Savings&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Credit_Card_Expiry_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c == true,
+OR(
+IATSPayment__Method_of_Payment__c = &apos;CC&apos;,
+IATSPayment__Method_of_Payment__c = &apos;Credit Card&apos;),  
+ISBLANK( IATSPayment__Credit_Card_Expiry_Date__c)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Credit_Card_Expiry_Date__c</errorDisplayField>
+        <errorMessage>Credit Card Expiry Date must be provided if the Method of Payment is set to &apos;CC&apos; or &apos;Credit Card&apos;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Credit_Card_Expiry_Date_Format</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+IATSPayment__Complete_Batch_Update__c == true, 
+!ISBLANK(IATSPayment__Credit_Card_Expiry_Date__c), 
+NOT(REGEX(IATSPayment__Credit_Card_Expiry_Date__c,&quot;[0-9]{2}[/]{1}[0-9]{2}&quot;)) 
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Credit_Card_Expiry_Date__c</errorDisplayField>
+        <errorMessage>Credit Card Expiry Date must be in the following format &apos;MM/YY&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Credit_Card_Number</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c == true,
+Or(
+IATSPayment__Method_of_Payment__c = &apos;CC&apos;,
+IATSPayment__Method_of_Payment__c = &apos;Credit Card&apos;),
+ISBLANK(IATSPayment__Credit_Card_Number__c)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Credit_Card_Number__c</errorDisplayField>
+        <errorMessage>Credit Card Number must be provided if the method of payment is set to &apos;CC&apos; or &apos;Credit Card&apos;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Credit_Card_Number_Changed</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(  IATSPayment__Complete_Batch_Update__c, 
+ISCHANGED(IATSPayment__Credit_Card_Number__c), 
+!ISNEW() 
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Credit_Card_Number__c</errorDisplayField>
+        <errorMessage>Credit Card Number cannot be adjusted via Update Processing.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Credit_Card_Number_Format</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR( 
+
+AND( 
+IATSPayment__Complete_Batch_Update__c == true, 
+!CONTAINS(&apos;*&apos;,IATSPayment__Credit_Card_Number__c),
+!CONTAINS(&apos;X&apos;,IATSPayment__Credit_Card_Number__c),
+LEN(IATSPayment__Credit_Card_Number__c)&gt; 4, 
+OR(
+IATSPayment__Credit_Card_Type__c = &apos;Mastercard&apos;, 
+IATSPayment__Credit_Card_Type__c = &apos;MC&apos;),
+NOT(REGEX(IATSPayment__Credit_Card_Number__c, &apos;^5[1-5][0-9]{14}$&apos;))), 
+
+AND( 
+IATSPayment__Complete_Batch_Update__c == true, 
+!CONTAINS(&apos;*&apos;,IATSPayment__Credit_Card_Number__c),
+!CONTAINS(&apos;X&apos;,IATSPayment__Credit_Card_Number__c),
+LEN(IATSPayment__Credit_Card_Number__c)&gt; 4, 
+OR(
+IATSPayment__Credit_Card_Type__c = &apos;Visa&apos;, 
+IATSPayment__Credit_Card_Type__c = &apos;Visa&apos;),
+NOT(REGEX(IATSPayment__Credit_Card_Number__c, &apos;^4[0-9]{12}(?:[0-9]{3})?$&apos;))), 
+
+AND(
+IATSPayment__Complete_Batch_Update__c == true, 
+!CONTAINS(&apos;*&apos;,IATSPayment__Credit_Card_Number__c),
+!CONTAINS(&apos;X&apos;,IATSPayment__Credit_Card_Number__c),
+LEN(IATSPayment__Credit_Card_Number__c)&gt; 4, 
+OR( 
+IATSPayment__Credit_Card_Type__c = &apos;Discover&apos;,
+IATSPayment__Credit_Card_Type__c = &apos;DSC&apos;), 
+NOT(REGEX(IATSPayment__Credit_Card_Number__c, &apos;^6(?:011|5[0-9]{2})[0-9]{12}$&apos;))), 
+
+AND(
+IATSPayment__Complete_Batch_Update__c == true, 
+!CONTAINS(&apos;*&apos;,IATSPayment__Credit_Card_Number__c),
+!CONTAINS(&apos;X&apos;,IATSPayment__Credit_Card_Number__c),
+LEN(IATSPayment__Credit_Card_Number__c)&gt; 4,  
+OR(
+IATSPayment__Credit_Card_Type__c = &apos;American Express&apos;,
+IATSPayment__Credit_Card_Type__c = &apos;AMX&apos;), 
+NOT(REGEX(IATSPayment__Credit_Card_Number__c, &apos;^3[47][0-9]{13}$&apos;))) 
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Credit_Card_Number__c</errorDisplayField>
+        <errorMessage>Credit card number is incorrect.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Credit_Card_Type</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c == true,
+Or(
+IATSPayment__Method_of_Payment__c = &apos;CC&apos;,
+IATSPayment__Method_of_Payment__c = &apos;Credit Card&apos;),
+ISBLANK(IATSPayment__Credit_Card_Type__c)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Credit_Card_Type__c</errorDisplayField>
+        <errorMessage>Credit Card Type must be provided if the method of payment is set to &apos;CC&apos; or &apos;Credit Card&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Credit_Card_Type_Format</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c == true,
+Or(
+IATSPayment__Method_of_Payment__c = &apos;CC&apos;,
+IATSPayment__Method_of_Payment__c = &apos;Credit Card&apos;),
+
+IATSPayment__Credit_Card_Type__c != &apos;Visa&apos;,
+IATSPayment__Credit_Card_Type__c != &apos;MasterCard&apos;,
+IATSPayment__Credit_Card_Type__c != &apos;American Express&apos;,
+IATSPayment__Credit_Card_Type__c != &apos;Discover&apos;,
+IATSPayment__Credit_Card_Type__c != &apos;VISA&apos;,
+IATSPayment__Credit_Card_Type__c != &apos;MC&apos;,
+IATSPayment__Credit_Card_Type__c != &apos;AMX&apos;,
+IATSPayment__Credit_Card_Type__c != &apos;DSC&apos;
+
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Credit_Card_Type__c</errorDisplayField>
+        <errorMessage>Credit Card Type must be one of the following values: Visa, VISA, Mastercard, MC, American Express, AMX, Discover, or DSC.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Method_of_Payment</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Method_of_Payment__c != &apos;CC&apos;,
+IATSPayment__Method_of_Payment__c != &apos;Credit Card&apos;,
+IATSPayment__Method_of_Payment__c != &apos;Direct Debit&apos;,
+IATSPayment__Method_of_Payment__c != &apos;ACH&apos;,
+IATSPayment__Complete_Batch_Update__c == true
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Method_of_Payment__c</errorDisplayField>
+        <errorMessage>Method of payment must be: CC, Credit Card, ACH, or Direct Debit.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Method_of_Payment_Changed</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( IATSPayment__Complete_Batch_Update__c, 
+ISCHANGED( IATSPayment__Method_of_Payment__c ), 
+!ISNEW() 
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Method_of_Payment__c</errorDisplayField>
+        <errorMessage>Method of Payment cannot be adjusted via Update Processing.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Rapidata_Cancellation</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+IATSPayment__Complete_Batch_Update__c, 
+ISPICKVAL(IATSPayment__IATS_Account__r.IATSPayment__Direct_Debit_Processor__c, &apos;Rapidata&apos;), 
+IATSPayment__Method_of_Payment__c = &apos;ACH&apos; || IATSPayment__Method_of_Payment__c = &apos;Direct Debit&apos;, 
+IATSPayment__Recurring_Payment_Status__c = &apos;Inactive&apos;,
+PRIORVALUE(IATSPayment__Recurring_Payment_Status__c) != &apos;Inactive&apos; 
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Status__c</errorDisplayField>
+        <errorMessage>Rapidata recurring payments cannot be cancelled via Update Processing.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Amount</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+OR(
+!ISBLANK(IATSPayment__Recurring_Payment_Begin_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Status__c),
+!ISBLANK(IATSPayment__Recurring_Payment_End_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Type__c)
+),
+ISBLANK(IATSPayment__Recurring_Payment_Amount__c) 
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Amount__c</errorDisplayField>
+        <errorMessage>Recurring Payment Amount must have a value if the other Recurring Payment fields are populated.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Amount_Active</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ IATSPayment__Complete_Batch_Update__c,
+IATSPayment__Recurring_Payment_Amount__c &lt;= 0, 
+IATSPayment__Recurring_Payment_Status__c = &apos;Active&apos;
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Amount__c</errorDisplayField>
+        <errorMessage>Recurring Payment Amount must be greater than 0.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Begin_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+OR(
+!ISBLANK(IATSPayment__Recurring_Payment_Amount__c), 
+!ISBLANK(IATSPayment__Recurring_Payment_Status__c),
+!ISBLANK(IATSPayment__Recurring_Payment_End_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Type__c)
+),
+ISBLANK(IATSPayment__Recurring_Payment_Begin_Date__c)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Begin_Date__c</errorDisplayField>
+        <errorMessage>Recurring Payment Begin Date must have a value if the other Recurring Payment fields are populated.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Begin_date_Today</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c, 
+!ISBLANK(IATSPayment__Recurring_Payment_Begin_Date__c),
+IATSPayment__Recurring_Payment_Begin_Date__c &lt; Today(),
+ISCHANGED(IATSPayment__Recurring_Payment_Begin_Date__c),
+!ISNEW() 
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Begin_Date__c</errorDisplayField>
+        <errorMessage>Recurring Payment Begin Date must be greater than or equal to today.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_End_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+OR(
+!ISBLANK(IATSPayment__Recurring_Payment_Amount__c), 
+!ISBLANK(IATSPayment__Recurring_Payment_Status__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Begin_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Type__c)
+),
+ISBLANK(IATSPayment__Recurring_Payment_End_Date__c)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_End_Date__c</errorDisplayField>
+        <errorMessage>Recurring Payment End Date must have a value if the other Recurring Payment fields are populated.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_End_Date_Annually</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c == true, 
+IATSPayment__Recurring_Payment_Schedule_Type__c = &apos;Annually&apos;,
+!ISBLANK(IATSPayment__Recurring_Payment_End_Date__c),
+IATSPayment__Recurring_Payment_Begin_Date__c + 365 &gt;  IATSPayment__Recurring_Payment_End_Date__c)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_End_Date__c</errorDisplayField>
+        <errorMessage>Recurring Payment End Date must be at least one year greater than the Recurring Payment Begin Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_End_Date_Greater</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+IATSPayment__Complete_Batch_Update__c == true, 
+!ISBLANK(IATSPayment__Recurring_Payment_Begin_Date__c), 
+!ISBLANK(IATSPayment__Recurring_Payment_End_Date__c), 
+IATSPayment__Recurring_Payment_End_Date__c &lt;= IATSPayment__Recurring_Payment_Begin_Date__c 
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_End_Date__c</errorDisplayField>
+        <errorMessage>Recurring Payment End Date must be greater than the Recurring Payment Begin Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_End_Date_Monthly</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c == true, 
+IATSPayment__Recurring_Payment_Schedule_Type__c = &apos;Monthly&apos;,
+!ISBLANK(IATSPayment__Recurring_Payment_End_Date__c),
+IATSPayment__Recurring_Payment_Begin_Date__c + 30 &gt;  IATSPayment__Recurring_Payment_End_Date__c)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_End_Date__c</errorDisplayField>
+        <errorMessage>&apos;Recurring Payment End Date&apos; must be at least one month greater than the &apos;Recurring Payment Begin Date&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_End_Date_Quarterly</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c == true, 
+IATSPayment__Recurring_Payment_Schedule_Type__c = &apos;Quarterly&apos;,
+!ISBLANK(IATSPayment__Recurring_Payment_End_Date__c),
+IATSPayment__Recurring_Payment_Begin_Date__c + 90 &gt;  IATSPayment__Recurring_Payment_End_Date__c)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_End_Date__c</errorDisplayField>
+        <errorMessage>&apos;Recurring Payment End Date&apos; must be at least three months greater than the &apos;Recurring Payment Begin Date&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_End_Date_Weekly</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c == true, 
+IATSPayment__Recurring_Payment_Schedule_Type__c = &apos;Weekly&apos;,
+!ISBLANK(IATSPayment__Recurring_Payment_End_Date__c),
+IATSPayment__Recurring_Payment_Begin_Date__c + 7 &gt;  IATSPayment__Recurring_Payment_End_Date__c)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_End_Date__c</errorDisplayField>
+        <errorMessage>&apos;Recurring Payment End Date&apos; must be at least one week greater than the &apos;Recurring Payment Begin Date&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Schedule_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+LEN(IATSPayment__IATS_Account__r.IATSPayment__Password__c) != 36,
+OR(
+
+ISPICKVAL(IATSPayment__IATS_Account__r.IATSPayment__Direct_Debit_Processor__c, &apos;&apos;),
+ISPICKVAL(IATSPayment__IATS_Account__r.IATSPayment__Direct_Debit_Processor__c, &apos;Smart Debit&apos;),
+AND(
+ISPICKVAL(IATSPayment__IATS_Account__r.IATSPayment__Direct_Debit_Processor__c, &apos;Rapidata&apos;),
+IATSPayment__Method_of_Payment__c = &apos;CC&apos; || IATSPayment__Method_of_Payment__c = &apos;Credit Card&apos;)
+
+),
+OR(
+!ISBLANK(IATSPayment__Recurring_Payment_Amount__c), 
+!ISBLANK(IATSPayment__Recurring_Payment_Status__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Begin_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_End_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Type__c)
+),
+OR(
+IATSPayment__Recurring_Payment_Schedule_Type__c = &apos;Weekly&apos;,
+IATSPayment__Recurring_Payment_Schedule_Type__c = &apos;Monthly&apos;
+),
+ISBLANK(IATSPayment__Recurring_Payment_Schedule_Date__c)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Schedule_Date__c</errorDisplayField>
+        <errorMessage>Recurring Payment Schedule Date must have a value if the other Recurring Payment fields are populated and the Recurring Payment Schedule Type is &apos;Weekly&apos; or &apos;Monthly&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Schedule_Date_Monthly</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+IATSPayment__Recurring_Payment_Schedule_Type__c = &apos;Monthly&apos;,
+OR(
+IATSPayment__Recurring_Payment_Schedule_Date__c &lt;=0,
+IATSPayment__Recurring_Payment_Schedule_Date__c &gt; 32
+)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Schedule_Date__c</errorDisplayField>
+        <errorMessage>Recurring Payment Schedule Date must have a value between 0 and 31 as the Recurring Payment Schedule Type is &apos;Monthly&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Schedule_Date_Not_Appl</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+
+OR(
+AND(
+ISPICKVAL(IATSPayment__IATS_Account__r.IATSPayment__Direct_Debit_Processor__c, &apos;Rapidata&apos;),
+IATSPayment__Method_of_Payment__c = &apos;ACH&apos; || IATSPayment__Method_of_Payment__c = &apos;Direct Debit&apos;
+),
+LEN(IATSPayment__IATS_Account__r.IATSPayment__Password__c) = 36
+),
+
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Date__c)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Schedule_Date__c</errorDisplayField>
+        <errorMessage>Recurring Payment Schedule Date is not applicable for the iATS Merchant Account.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Schedule_Date_Weekly</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+IATSPayment__Recurring_Payment_Schedule_Type__c = &apos;Weekly&apos;,
+OR(
+IATSPayment__Recurring_Payment_Schedule_Date__c &lt;=0,
+IATSPayment__Recurring_Payment_Schedule_Date__c &gt; 7
+)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Schedule_Date__c</errorDisplayField>
+        <errorMessage>Recurring Payment Schedule Date must have a value between 0 and 7 as the Recurring Payment Schedule Type is &apos;Monthly&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Schedule_Type</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+OR(
+!ISBLANK(IATSPayment__Recurring_Payment_Amount__c), 
+!ISBLANK(IATSPayment__Recurring_Payment_Status__c),
+!ISBLANK(IATSPayment__Recurring_Payment_End_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Begin_Date__c)
+),
+ISBLANK(IATSPayment__Recurring_Payment_Schedule_Type__c)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Schedule_Type__c</errorDisplayField>
+        <errorMessage>Recurring Payment Schedule Type must have a value if the other Recurring Payment fields are populated.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Schedule_Type_Value</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Type__c),
+IATSPayment__Recurring_Payment_Schedule_Type__c != &apos;Weekly&apos;,
+IATSPayment__Recurring_Payment_Schedule_Type__c != &apos;Monthly&apos;,
+IATSPayment__Recurring_Payment_Schedule_Type__c != &apos;Quarterly&apos;,
+IATSPayment__Recurring_Payment_Schedule_Type__c != &apos;Annually&apos;
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Schedule_Type__c</errorDisplayField>
+        <errorMessage>Recurring Payment Schedule Type must be &apos;Weekly&apos;, &apos;Monthly&apos;, &apos;Quarterly&apos;, or &apos;Annually&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Schedule_Type_Weekly</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c == true, 
+IATSPayment__Recurring_Payment_Schedule_Type__c = &apos;Weekly&apos;,
+ISPICKVAL(IATSPayment__IATS_Account__r.IATSPayment__Direct_Debit_Processor__c, &apos;Rapidata&apos;)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Schedule_Type__c</errorDisplayField>
+        <errorMessage>Weekly is not available for Rapidata UK Direct Debit merchant accounts.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Status</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+OR(
+!ISBLANK(IATSPayment__Recurring_Payment_Begin_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Amount__c), 
+!ISBLANK(IATSPayment__Recurring_Payment_End_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Date__c),
+!ISBLANK(IATSPayment__Recurring_Payment_Schedule_Type__c)
+),
+
+ISBLANK(IATSPayment__Recurring_Payment_Status__c)
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Status__c</errorDisplayField>
+        <errorMessage>Recurring Payment Status must have a value if the other Recurring Payment fields are populated.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__Recurring_Payment_Status_Value</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c,
+!ISBLANK(IATSPayment__Recurring_Payment_Status__c),
+IATSPayment__Recurring_Payment_Status__c != &apos;Active&apos;,
+IATSPayment__Recurring_Payment_Status__c != &apos;Inactive&apos;
+)</errorConditionFormula>
+        <errorDisplayField>IATSPayment__Recurring_Payment_Status__c</errorDisplayField>
+        <errorMessage>If the Recurring Payment Status is provided it must be set to &apos;Active&apos; or &apos;Inactive&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IATSPayment__iATS_Merchant_Account</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+IATSPayment__Complete_Batch_Update__c == true, 
+ISCHANGED(IATSPayment__IATS_Account__c),
+!ISNEW())</errorConditionFormula>
+        <errorDisplayField>IATSPayment__IATS_Account__c</errorDisplayField>
+        <errorMessage>iATS Merchant Account cannot be adjusted.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

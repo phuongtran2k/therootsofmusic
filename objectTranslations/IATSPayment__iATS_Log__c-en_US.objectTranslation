@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Log Details --></label>
+        <name>IATSPayment__Log_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Log Type --></label>
+        <name>IATSPayment__Log_Type__c</name>
+    </fields>
+</CustomObjectTranslation>
